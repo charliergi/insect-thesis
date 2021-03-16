@@ -1,10 +1,14 @@
 import urllib.request
 import sys
+import time
+
 from os import path, remove
 from PIL import Image
 from multiprocessing.dummy import Pool as ThreadPool
 
 import os
+
+
 
 def get_url(element,counter,name):
     try:
@@ -36,7 +40,6 @@ if __name__=='__main__':
     if not path.exists("annotate-to-KITTI/data/"+name) : os.mkdir("annotate-to-KITTI/data/"+name)
     if not path.exists("annotate-to-KITTI/data/"+name+"/images") : os.mkdir("annotate-to-KITTI/data/"+name+"/images")
     for i in f.readlines():
-        print(i)
         if firstline:
             firstline=False
         else:
@@ -51,6 +54,5 @@ if __name__=='__main__':
     names = [name for i in range(0,len(targets))]
     pool = ThreadPool(100)
     results = pool.starmap(get_url, zip(targets, counter_list, names))
-    print(results)
 
-    print(str(len(targets)),"files successfully saved !")
+    print(str(len(targets)),"files successfully saved in path ","annotate-to-KITTI/data/"+name+"/images/*")
