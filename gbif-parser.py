@@ -1,8 +1,10 @@
 import urllib.request
 import sys
 import time
-
 from os import path, remove
+
+from os.path import isfile, join, exists
+
 from PIL import Image
 from multiprocessing.dummy import Pool as ThreadPool
 
