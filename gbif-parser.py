@@ -15,15 +15,15 @@ import os
 def get_url(element,counter,name):
     try:
         if element[0] == "image/jpeg":
-            print("saving to","data/"+name+"/images/"+str(counter)+".jpg")
-            urllib.request.urlretrieve(element[1], "data/"+name+"/images/"+str(counter)+".jpg")
+            print("saving to","data/"+name+"/images/"+str(counter)+"-"+name+".jpg")
+            urllib.request.urlretrieve(element[1], "data/"+name+"/images/"+str(counter)+"-"+name+".jpg")
         elif element[0] == "image/png":
-            urllib.request.urlretrieve(element[1], "data/"+name+"/images/"+str(counter)+".png")
-            im = Image.open("data/"+name+"/"+str(counter)+".png")
+            urllib.request.urlretrieve(element[1], "data/"+name+"/images/"+str(counter)+"-"+name+".png")
+            im = Image.open("data/"+name+"/"+str(counter)+"-"+name+".png")
             if not im.mode == 'RGB':
                 im = im.convert('RGB')
-            im.save("data/"+name+"/images/"+str(counter)+".jpg", quality=95)
-            os.remove("data/"+name+"/"+str(counter)+".png")
+            im.save("data/"+name+"/images/"+str(counter)+"-"+name+".jpg", quality=95)
+            os.remove("data/"+name+"/"+str(counter)+"-"+name+".png")
     except:
         pass
 
