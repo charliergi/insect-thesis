@@ -45,14 +45,14 @@ def get_url(element,counter,name):
     try:
         if element[0] == "image/jpeg":
             #print("saving to","data/kitti/"+name+"/test/"+str(counter)+"-"+name+".jpg")
-            urllib.request.urlretrieve(element[1], "data/kitti/"+name+"/test/"+str(counter)+"-"+name+".jpg")
+            urllib.request.urlretrieve(element[1], "data/kitti/"+name+"/test/images/"+str(counter)+"-"+name+".jpg")
         elif element[0] == "image/png":
-            urllib.request.urlretrieve(element[1], "data/kitti/"+name+"/test/"+str(counter)+"-"+name+".png")
-            im = Image.open("data/kitti/"+name+"/test/"+str(counter)+"-"+name+".png")
+            urllib.request.urlretrieve(element[1], "data/kitti/"+name+"/test/images/"+str(counter)+"-"+name+".png")
+            im = Image.open("data/kitti/"+name+"/test/images/"+str(counter)+"-"+name+".png")
             if not im.mode == 'RGB':
                 im = im.convert('RGB')
-            im.save("data/kitti/"+name+"/test/"+str(counter)+"-"+name+".jpg", quality=100)
-            os.remove("data/kitti"+name+"/test/"+str(counter)+"-"+name+".png")
+            im.save("data/kitti/"+name+"/test/images/"+str(counter)+"-"+name+".jpg", quality=100)
+            os.remove("data/kitti"+name+"/test/images/"+str(counter)+"-"+name+".png")
     except:
         pass
 
@@ -75,7 +75,11 @@ if __name__=='__main__':
     if not path.exists("data/kitti") : os.mkdir("data/kitti")
     if not path.exists("data/kitti/"+name) : os.mkdir("data/kitti/"+name)
     if not path.exists("data/kitti/"+name+"/test") : os.mkdir("data/kitti/"+name+"/test")
+    if not path.exists("data/kitti/"+name+"/train") : os.mkdir("data/kitti/"+name+"/train")
+    if not path.exists("data/kitti/"+name+"/train/images") : os.mkdir("data/kitti/"+name+"/train/images")
+    if not path.exists("data/kitti/"+name+"/test/images") : os.mkdir("data/kitti/"+name+"/test/images")
 
+    if not path.exists("data/kitti/"+name+"/train/labels") : os.mkdir("data/kitti/"+name+"/train/labels")
     for i in f.readlines():
         if firstline:
             firstline=False
