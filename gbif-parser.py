@@ -15,15 +15,15 @@ import os
 def get_url(element,counter,name):
     try:
         if element[0] == "image/jpeg":
-            print("saving to","annotate-to-KITTI/data/"+name+"/images/"+str(counter)+".jpg")
-            urllib.request.urlretrieve(element[1], "annotate-to-KITTI/data/"+name+"/images/"+str(counter)+".jpg")
+            print("saving to","data/"+name+"/images/"+str(counter)+".jpg")
+            urllib.request.urlretrieve(element[1], "data/"+name+"/images/"+str(counter)+".jpg")
         elif element[0] == "image/png":
-            urllib.request.urlretrieve(element[1], "annotate-to-KITTI/data/"+name+"/images/"+str(counter)+".png")
-            im = Image.open("annotate-to-KITTI/data/"+name+"/"+str(counter)+".png")
+            urllib.request.urlretrieve(element[1], "data/"+name+"/images/"+str(counter)+".png")
+            im = Image.open("data/"+name+"/"+str(counter)+".png")
             if not im.mode == 'RGB':
                 im = im.convert('RGB')
-            im.save("annotate-to-KITTI/data/"+name+"/images/"+str(counter)+".jpg", quality=95)
-            os.remove("annotate-to-KITTI/data/"+name+"/"+str(counter)+".png")
+            im.save("data/"+name+"/images/"+str(counter)+".jpg", quality=95)
+            os.remove("data/"+name+"/"+str(counter)+".png")
     except:
         pass
 
@@ -39,8 +39,8 @@ if __name__=='__main__':
     target_number = int(sys.argv[3])
     firstline=True
     targets = []
-    if not path.exists("annotate-to-KITTI/data/"+name) : os.mkdir("annotate-to-KITTI/data/"+name)
-    if not path.exists("annotate-to-KITTI/data/"+name+"/images") : os.mkdir("annotate-to-KITTI/data/"+name+"/images")
+    if not path.exists("data/"+name) : os.mkdir("data/"+name)
+    if not path.exists("data/"+name+"/images") : os.mkdir("data/"+name+"/images")
     for i in f.readlines():
         if firstline:
             firstline=False
@@ -57,4 +57,4 @@ if __name__=='__main__':
     pool = ThreadPool(100)
     results = pool.starmap(get_url, zip(targets, counter_list, names))
 
-    print(str(len(targets)),"files successfully saved in path ","annotate-to-KITTI/data/"+name+"/images/*")
+    print(str(len(targets)),"files successfully saved in path ","data/"+name+"/images/*")

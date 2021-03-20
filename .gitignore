@@ -1,0 +1,3 @@
+data/*
+faster_rcnn/.pynb_checkpoints
+tfrecords/
