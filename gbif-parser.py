@@ -98,4 +98,4 @@ if __name__=='__main__':
     with mpp.Pool(12) as pool:
         results = list(tqdm.tqdm(pool.istarmap(get_url,inputs),total=len(targets)))
 
-    print(str(len(targets)),"files successfully saved in path ","data/kitti/"+name+"/test/*")
+    print(str(len(targets)),"files successfully saved in path ","data/kitti/"+name+"/test/images/*")
