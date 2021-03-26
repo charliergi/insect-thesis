@@ -1,0 +1,13 @@
+# Spec file for tlt-augment.
+spatial_config{
+}
+dataset_config{
+    image_path: "images_Orthosia_Gothica"
+    label_path: "labels_Orthosia_Gothica"
+}
+color_config{
+}
+output_image_width: 1248
+output_image_height: 384
+output_image_channel: 3
+image_extension: ".png"
