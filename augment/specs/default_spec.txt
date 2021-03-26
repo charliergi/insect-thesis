@@ -2,6 +2,7 @@
 spatial_config{
 }
 dataset_config{
+<<<<<<< HEAD
     image_path: "images"
     label_path: "labels"
 }
@@ -11,3 +12,14 @@ output_image_width: 400
 output_image_height: 400
 output_image_channel: 3
 image_extension: ".jpg"
+=======
+    image_path: "images_Orthosia_Gothica"
+    label_path: "labels_Orthosia_Gothica"
+}
+color_config{
+}
+output_image_width: 1248
+output_image_height: 384
+output_image_channel: 3
+image_extension: ".png"
+>>>>>>> 8cbf7253339ec7877f2f1159ef75b3dc8344e662
