@@ -7,8 +7,8 @@ input_image_config {
 image_type: RGB
 image_channel_order: 'bgr'
 size_height_width {
-height: 384
-width: 1248
+height: 400
+width: 400
 }
     image_channel_mean {
         key: 'b'
@@ -49,10 +49,14 @@ use_pooling:False
 }
 dataset_config {
   data_sources: {
-    tfrecords_path: "/workspace/tlt-experiments/insect-thesis/data/kitti/noctuidae/tfrecords/kitti_trainval/kitti_trainval*"
-    image_directory_path: "/workspace/tlt-experiments/insect-thesis/data/kitti/noctuidae/train"
+    tfrecords_path: "/workspace/tlt-experiments/insect-thesis/data/kitti/fusion/tfrecords/kitti_trainval/kitti_trainval*"
+    image_directory_path: "/workspace/tlt-experiments/insect-thesis/data/kitti/fusion/train"
   }
 image_extension: 'jpg'
+target_class_mapping {
+key: 'geometridae'
+value: 'geometridae'
+}
 target_class_mapping {
 key: 'noctuidae'
 value: 'noctuidae'
@@ -62,8 +66,8 @@ validation_fold: 0
 }
 augmentation_config {
 preprocessing {
-output_image_width: 1248
-output_image_height: 384
+output_image_width: 400
+output_image_height: 400
 output_image_channel: 3
 min_bbox_width: 1.0
 min_bbox_height: 1.0
@@ -90,7 +94,7 @@ batch_size_per_gpu: 1
 num_epochs: 20
 pretrained_weights: "/workspace/tlt-experiments/insect-thesis/data/faster_rcnn/resnet_18.hdf5"
 #resume_from_model: "/workspace/tlt-experiments/insect-thesis/data/faster_rcnn/resnet18.epoch2.tlt"
-output_model: "/workspace/tlt-experiments/insect-thesis/data/kitti/noctuidae/faster_rcnn/frcnn_kitti_resnet18.tlt"
+output_model: "/workspace/tlt-experiments/insect-thesis/data/kitti/fusion/faster_rcnn/frcnn_kitti_resnet18.tlt"
 rpn_min_overlap: 0.3
 rpn_max_overlap: 0.7
 classifier_min_overlap: 0.0
@@ -150,11 +154,11 @@ lambda_cls_regr: 1.0
 lambda_cls_class: 1.0
 }
 inference_config {
-images_dir: '/workspace/tlt-experiments/insect-thesis/data/kitti/noctuidae/test/images'
-model: '/workspace/tlt-experiments/insect-thesis/data/kitti/noctuidae/faster_rcnn/frcnn_kitti_resnet18.epoch20.tlt'
+images_dir: '/workspace/tlt-experiments/insect-thesis/data/kitti/fusion/inference/images'
+model: '/workspace/tlt-experiments/insect-thesis/data/kitti/fusion/faster_rcnn/frcnn_kitti_resnet18.epoch12.tlt'
 batch_size: 1
-detection_image_output_dir: '/workspace/tlt-experiments/insect-thesis/data/kitti/noctuidae/faster_rcnn/inference_results_imgs'
-labels_dump_dir: '/workspace/tlt-experiments/insect-thesis/data/kitti/noctuidae/faster_rcnn/inference_dump_labels'
+detection_image_output_dir: '/workspace/tlt-experiments/insect-thesis/data/kitti/fusion/faster_rcnn/inference_results_imgs'
+labels_dump_dir: '/workspace/tlt-experiments/insect-thesis/data/kitti/fusion/faster_rcnn/inference_dump_labels'
 rpn_pre_nms_top_N: 6000
 rpn_nms_max_boxes: 300
 rpn_nms_overlap_threshold: 0.7
@@ -164,10 +168,10 @@ classifier_nms_max_boxes: 100
 classifier_nms_overlap_threshold: 0.3
 }
 evaluation_config {
-model: '/workspace/tlt-experiments/insect-thesis/data/kitti/noctuidae/faster_rcnn/frcnn_kitti_resnet18.epoch20.tlt'
+model: '/workspace/tlt-experiments/insect-thesis/data/kitti/fusion/faster_rcnn/frcnn_kitti_resnet18.epoch12.tlt'
 batch_size: 1
 validation_period_during_training: 1
-labels_dump_dir: '/workspace/tlt-experiments/insect-thesis/data/kitti/noctuidae/faster_rcnn/test_dump_labels'
+labels_dump_dir: '/workspace/tlt-experiments/insect-thesis/data/kitti/fusion/faster_rcnn/inference_dump_labels'
 rpn_pre_nms_top_N: 6000
 rpn_nms_max_boxes: 300
 rpn_nms_overlap_threshold: 0.7

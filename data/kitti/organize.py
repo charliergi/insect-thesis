@@ -11,10 +11,10 @@ dataset_images = dataset_folder+"/images"
 dataset_labels = dataset_folder+"/labels"
 
 if not path.exists(dataset_folder+"/train") : os.mkdir(dataset_folder+"/train")
-if not path.exists(dataset_folder+"/test") : os.mkdir(dataset_folder+"/test")
+if not path.exists(dataset_folder+"/inference") : os.mkdir(dataset_folder+"/inference")
 if not path.exists(dataset_folder+"/train/images") : os.mkdir(dataset_folder+"/train/images")
 if not path.exists(dataset_folder+"/train/labels") : os.mkdir(dataset_folder+"/train/labels")
-if not path.exists(dataset_folder+"/test/images") : os.mkdir(dataset_folder+"/test/images")
+if not path.exists(dataset_folder+"/inference/images") : os.mkdir(dataset_folder+"/inference/images")
 
 
 image_files = [f for f in listdir(dataset_images) if isfile(join(dataset_images, f))]
@@ -29,7 +29,7 @@ for file in image_files:
         os.rename(dataset_folder+"/labels/"+image_name+".txt", dataset_folder+"/train/labels/"+image_name+".txt")
         print("moving",dataset_folder+"/images/"+file, "into", dataset_folder+"/train/images/"+file)
     else:
-        os.rename(dataset_folder+"/images/"+file, dataset_folder+"/test/images/"+file)
+        os.rename(dataset_folder+"/images/"+file, dataset_folder+"/inference/images/"+file)
 
 os.rmdir(dataset_folder+"/images")
 os.rmdir(dataset_folder+"/labels")
