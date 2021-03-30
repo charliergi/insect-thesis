@@ -89,7 +89,7 @@ contrast_center: 0.5
 }
 training_config {
 enable_augmentation: True
-enable_qat: True
+enable_qat: False
 batch_size_per_gpu: 1
 num_epochs: 20
 retrain_pruned_model: "/workspace/tlt-experiments/insect-thesis/data/kitti/fusion/faster_rcnn/model_1_pruned.tlt"
@@ -154,7 +154,7 @@ lambda_cls_class: 1.0
 }
 inference_config {
 images_dir: '/workspace/tlt-experiments/insect-thesis/data/kitti/fusion/inference/images'
-model: '/workspace/tlt-experiments/insect-thesis/data/kitti/fusion/faster_rcnn/frcnn_kitti_resnet18_retrain.epoch12.tlt'
+model: '/workspace/tlt-experiments/insect-thesis/data/kitti/fusion/faster_rcnn/frcnn_kitti_resnet18_retrain.epoch20.tlt'
 batch_size: 1
 detection_image_output_dir: '/workspace/tlt-experiments/insect-thesis/data/kitti/fusion/faster_rcnn/inference_results_imgs_retrain'
 labels_dump_dir: '/workspace/tlt-experiments/insect-thesis/data/kitti/fusion/faster_rcnn/inference_dump_labels_retrain'
@@ -172,7 +172,7 @@ classifier_nms_overlap_threshold: 0.3
 #}
 }
 evaluation_config {
-model: '/workspace/tlt-experiments/insect-thesis/data/kitti/fusion/faster_rcnn/frcnn_kitti_resnet18_retrain.epoch12.tlt'
+model: '/workspace/tlt-experiments/insect-thesis/data/kitti/fusion/faster_rcnn/frcnn_kitti_resnet18_retrain.epoch20.tlt'
 batch_size: 1
 validation_period_during_training: 1
 labels_dump_dir: '/workspace/tlt-experiments/insect-thesis/data/kitti/fusion/faster_rcnn/inference_dump_labels_retrain'
