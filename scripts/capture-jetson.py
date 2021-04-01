@@ -100,7 +100,7 @@ def show_camera():
             cv2.putText(frame, datetime.datetime.now().strftime("%A %d %B %Y %I:%M:%S%p"),
                 (10, frame.shape[0] - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.35, (0, 0, 255), 1)
             # show the frame and record if the user presses a key
-            cv2.imshow("Security Feed", full_frame)
+            cv2.imshow("Live Feed", full_frame)
             #cv2.imshow("Thresh", thresh)
             #cv2.imshow("Frame Delta", frameDelta)
             key = cv2.waitKey(1) & 0xFF
