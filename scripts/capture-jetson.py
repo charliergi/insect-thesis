@@ -65,6 +65,8 @@ def show_camera():
         #window_handle = cv2.namedWindow("CSI Camera", cv2.WINDOW_AUTOSIZE)
         # Window
         firstFrame = None
+        reset=600
+        counter_image=0
         text="Nothing"
         #while cv2.getWindowProperty("CSI Camera", 0) >= 0:
         while True:
@@ -74,8 +76,9 @@ def show_camera():
             gray_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
             gray_frame = cv2.GaussianBlur(gray_frame, (21, 21), 0)
 
-            if firstFrame is None:
+            if firstFrame is None or reset==0:
                 firstFrame=gray_frame
+                reset=600
                 continue
             frameDelta = cv2.absdiff(firstFrame, gray_frame)
             thresh = cv2.threshold(frameDelta, 25, 255, cv2.THRESH_BINARY)[1]
@@ -83,7 +86,9 @@ def show_camera():
             thresh = cv2.dilate(thresh, None, iterations=2)
             cnts = cv2.findContours(thresh.copy(), cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
             cnts = imutils.grab_contours(cnts)
-
+            reset-=1
+            if reset % 30 ==0 and len(cnts)>1:
+                cv2.imwrite("data/image"+str(counter_image)+".jpg",full_frame)
             for c in cnts:
                 # if the contour is too small, ignore it
                 if cv2.contourArea(c) < args["min_area"]:
