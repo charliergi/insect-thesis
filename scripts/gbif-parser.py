@@ -41,18 +41,24 @@ def istarmap(self, func, iterable, chunksize=1):
 
 mpp.Pool.istarmap = istarmap
 
-def get_url(element,counter,name):
+def get_url(element,counter,name,sizex,sizey):
     try:
         if element[0] == "image/jpeg":
             #print("saving to","data/kitti/"+name+"/inference/"+str(counter)+"-"+name+".jpg")
-            urllib.request.urlretrieve(element[1], "data/kitti/"+name+"/inference/images/"+str(counter)+"-"+name+".jpg")
+            urllib.request.urlretrieve(element[1], "../data/kitti/"+name+"/inference/images/"+str(counter)+"-"+name+".jpg")
+            if sizex!=0 and sizey!=0:
+                image = Image.open("../data/kitti/"+name+"/inference/images/"+str(counter)+"-"+name+".jpg")
+                new_image = image.resize((sizex,sizey))
+                new_image.save("../data/kitti/"+name+"/inference/images/"+str(counter)+"-"+name+".jpg")
         elif element[0] == "image/png":
-            urllib.request.urlretrieve(element[1], "data/kitti/"+name+"/inference/images/"+str(counter)+"-"+name+".png")
-            im = Image.open("data/kitti/"+name+"/inference/images/"+str(counter)+"-"+name+".png")
+            urllib.request.urlretrieve(element[1], "../data/kitti/"+name+"/inference/images/"+str(counter)+"-"+name+".png")
+            im = Image.open("../data/kitti/"+name+"/inference/images/"+str(counter)+"-"+name+".png")
             if not im.mode == 'RGB':
                 im = im.convert('RGB')
-            im.save("data/kitti/"+name+"/inference/images/"+str(counter)+"-"+name+".jpg", quality=100)
-            os.remove("data/kitti"+name+"/inference/images/"+str(counter)+"-"+name+".png")
+            if sizex!=0 and sizey!=0:
+                im = im.resize((sizex,sizey))
+            im.save("../data/kitti/"+name+"/inference/images/"+str(counter)+"-"+name+".jpg", quality=100)
+            os.remove("../data/kitti"+name+"/inference/images/"+str(counter)+"-"+name+".png")
     except:
         pass
 
@@ -61,25 +67,34 @@ if __name__=='__main__':
     print("First argument : name of the species")
     print("Second argument : txt file containing links in gbif multimedia format")
     print("Third argument : number of iamges to download")
+    print("Fourth argument : size width for the image to be resized")
+    print("Fourth argument : size height for the image to be resized")
     print("INFO : Images will be downloaded directly into inference folder of the dataset, since nothing is annotated")
     name = sys.argv[1]
 
     f = open(sys.argv[2],"r")
+    sizex=0
+    sizey=0
+    
 
     # number of files to be downloaded
     target_number = int(sys.argv[3])
+    
+    if len(sys.argv)>4:
+        sizex = int(sys.argv[4])
+        sizey = int(sys.argv[5])
     firstline=True
     targets = []
     # creation of folders
-    if not path.exists("data") : os.mkdir("data")
-    if not path.exists("data/kitti") : os.mkdir("data/kitti")
-    if not path.exists("data/kitti/"+name) : os.mkdir("data/kitti/"+name)
-    if not path.exists("data/kitti/"+name+"/inference") : os.mkdir("data/kitti/"+name+"/inference")
-    if not path.exists("data/kitti/"+name+"/train") : os.mkdir("data/kitti/"+name+"/train")
-    if not path.exists("data/kitti/"+name+"/train/images") : os.mkdir("data/kitti/"+name+"/train/images")
-    if not path.exists("data/kitti/"+name+"/inference/images") : os.mkdir("data/kitti/"+name+"/inference/images")
+    if not path.exists("../data") : os.mkdir("../data")
+    if not path.exists("../data/kitti") : os.mkdir("../data/kitti")
+    if not path.exists("../data/kitti/"+name) : os.mkdir("../data/kitti/"+name)
+    if not path.exists("../data/kitti/"+name+"/inference") : os.mkdir("../data/kitti/"+name+"/inference")
+    if not path.exists("../data/kitti/"+name+"/train") : os.mkdir("../data/kitti/"+name+"/train")
+    if not path.exists("../data/kitti/"+name+"/train/images") : os.mkdir("../data/kitti/"+name+"/train/images")
+    if not path.exists("../data/kitti/"+name+"/inference/images") : os.mkdir("../data/kitti/"+name+"/inference/images")
 
-    if not path.exists("data/kitti/"+name+"/train/labels") : os.mkdir("data/kitti/"+name+"/train/labels")
+    if not path.exists("../data/kitti/"+name+"/train/labels") : os.mkdir("../data/kitti/"+name+"/train/labels")
     for i in f.readlines():
         if firstline:
             firstline=False
@@ -93,8 +108,10 @@ if __name__=='__main__':
     f.close()
     counter_list=[i for i in range(0,len(targets))]
     names = [name for i in range(0,len(targets))]
+    listsizex = [sizex for i in range(0,len(targets))]
+    listsizey = [sizey for i in range(0,len(targets))]
     #pool = ThreadPool(100)
-    inputs = zip(targets, counter_list, names)
+    inputs = zip(targets, counter_list, names,listsizex,listsizey)
     with mpp.Pool(12) as pool:
         results = list(tqdm.tqdm(pool.istarmap(get_url,inputs),total=len(targets)))
 
