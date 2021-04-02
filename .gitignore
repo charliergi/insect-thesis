@@ -1,5 +1,5 @@
 **/images
 **/labels
 **/faster_rcnn
-**/.pynb_checkpoints
+**/*.ipynb
 tfrecords/
