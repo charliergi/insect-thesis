@@ -14,6 +14,9 @@ import datetime
 import imutils
 import time
 import cv2
+import os
+from os import listdir, path
+from os.path import isfile, join
 
 # gstreamer_pipeline returns a GStreamer pipeline for capturing from the CSI camera
 # Defaults to 1280x720 @ 60fps
@@ -53,26 +56,32 @@ def gstreamer_pipeline(
 ap = argparse.ArgumentParser()
 ap.add_argument("-a", "--min-area", type=int, default=500, help="minimum area size")
 args = vars(ap.parse_args())
+if not path.exists("captures") : os.mkdir("captures")
 
 def show_camera():
     # To flip the image, modify the flip_method parameter (0 and 2 are the most common)
     print(gstreamer_pipeline(flip_method=0))
-    #cap = cv2.VideoCapture(gstreamer_pipeline(flip_method=0), cv2.CAP_GSTREAMER)
-    cap = VideoStream(src=0).start()
-    time.sleep(1)
-    #if cap.isOpened():
-    if True:
+    cap = cv2.VideoCapture(gstreamer_pipeline(flip_method=0), cv2.CAP_GSTREAMER)
+    #cap = VideoStream(src=0).start()
+    time.sleep(2.0)
+    if cap.isOpened():
+    #if True:
         #window_handle = cv2.namedWindow("CSI Camera", cv2.WINDOW_AUTOSIZE)
         # Window
         firstFrame = None
+        countdown=60
         reset=600
         counter_image=0
         text="Nothing"
-        #while cv2.getWindowProperty("CSI Camera", 0) >= 0:
+        #while cv2.getWindowProperty("", 0) >= 0:
         while True:
             #ret_val, frame = cap.read()
-            full_frame = cap.read()
-            frame = imutils.resize(full_frame,width=200)
+            _, full_frame = cap.read()
+            if countdown>0:
+                time.sleep(0.2)
+                countdown-=1
+                continue
+            frame = imutils.resize(full_frame,width=512)
             gray_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
             gray_frame = cv2.GaussianBlur(gray_frame, (21, 21), 0)
 
@@ -87,8 +96,10 @@ def show_camera():
             cnts = cv2.findContours(thresh.copy(), cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
             cnts = imutils.grab_contours(cnts)
             reset-=1
-            if reset % 30 ==0 and len(cnts)>1:
-                cv2.imwrite("data/image"+str(counter_image)+".jpg",full_frame)
+            if reset % 30 ==0 and len(cnts)>=1:
+                print("image taken !!")
+                cv2.imwrite("captures/image"+str(counter_image)+".jpg",full_frame)
+                counter_image+=1
             for c in cnts:
                 # if the contour is too small, ignore it
                 if cv2.contourArea(c) < args["min_area"]:
@@ -105,7 +116,7 @@ def show_camera():
             cv2.putText(frame, datetime.datetime.now().strftime("%A %d %B %Y %I:%M:%S%p"),
                 (10, frame.shape[0] - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.35, (0, 0, 255), 1)
             # show the frame and record if the user presses a key
-            cv2.imshow("Live Feed", full_frame)
+            cv2.imshow("Live Feed", frame)
             #cv2.imshow("Thresh", thresh)
             #cv2.imshow("Frame Delta", frameDelta)
             key = cv2.waitKey(1) & 0xFF
