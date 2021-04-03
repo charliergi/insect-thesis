@@ -10,7 +10,6 @@ dataset_labels_path = dataset_path + "/train/labels"
 
 
 
-# FAUUUUX
 dataset_labels = [f for f in listdir(dataset_labels_path) if isfile(join(dataset_labels_path, f))]
 
 for file in dataset_labels:

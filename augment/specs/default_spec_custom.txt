@@ -7,8 +7,8 @@ dataset_config{
 }
 color_config{
 }
-output_image_width: 400
-output_image_height: 400
+output_image_width: 512
+output_image_height: 512
 output_image_channel: 3
 image_extension: ".jpg"
 
