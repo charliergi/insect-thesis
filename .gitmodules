@@ -1,0 +1,3 @@
+[submodule "annotate-to-KITTI"]
+	path = annotate-to-KITTI
+	url = https://github.com/charliergi/annotate-to-KITTI.git
