@@ -89,6 +89,7 @@ def show_camera():
                 firstFrame=gray_frame
                 print("reset")
                 reset=600
+                print("reset !")
                 continue
             frameDelta = cv2.absdiff(firstFrame, gray_frame)
             thresh = cv2.threshold(frameDelta, 25, 255, cv2.THRESH_BINARY)[1]
