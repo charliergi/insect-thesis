@@ -14,7 +14,11 @@ dataset_inference_images_path = dataset_folder+"/inference/images"
 dataset_train_images = [f for f in listdir(dataset_train_images_path) if isfile(join(dataset_train_images_path, f))]
 dataset_train_labels = [f for f in listdir(dataset_train_labels_path) if isfile(join(dataset_train_labels_path, f))]
 
+print(len(dataset_train_images))
+print(len(dataset_train_labels))
+
 for train_file in dataset_train_images:
-    if not train_file.split("-")[0]+"-geometridae.txt" in dataset_train_labels:
+    if ".png" in train_file: print("fffff")
+    if not train_file.split("-")[0]+"-coleoptera.txt" in dataset_train_labels:
         os.rename(dataset_train_images_path+"/"+train_file,dataset_inference_images_path+"/"+train_file)
 

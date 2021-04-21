@@ -61,11 +61,11 @@ if not path.exists("captures") : os.mkdir("captures")
 def show_camera():
     # To flip the image, modify the flip_method parameter (0 and 2 are the most common)
     print(gstreamer_pipeline(flip_method=0))
-    cap = cv2.VideoCapture(gstreamer_pipeline(flip_method=0), cv2.CAP_GSTREAMER)
-    #cap = VideoStream(src=0).start()
+    #cap = cv2.VideoCapture(gstreamer_pipeline(flip_method=0), cv2.CAP_GSTREAMER)
+    cap = VideoStream(src=0).start()
     time.sleep(2.0)
-    if cap.isOpened():
-    #if True:
+    #if cap.isOpened():
+    if True:
         #window_handle = cv2.namedWindow("CSI Camera", cv2.WINDOW_AUTOSIZE)
         # Window
         firstFrame = None
@@ -75,8 +75,8 @@ def show_camera():
         text="Nothing"
         #while cv2.getWindowProperty("", 0) >= 0:
         while True:
-            #ret_val, frame = cap.read()
-            _, full_frame = cap.read()
+            full_frame = cap.read()
+            #_, full_frame = cap.read()
             if countdown>0:
                 time.sleep(0.2)
                 countdown-=1
@@ -88,6 +88,7 @@ def show_camera():
             if firstFrame is None or reset==0:
                 firstFrame=gray_frame
                 reset=600
+                print("reset !")
                 continue
             frameDelta = cv2.absdiff(firstFrame, gray_frame)
             thresh = cv2.threshold(frameDelta, 25, 255, cv2.THRESH_BINARY)[1]
