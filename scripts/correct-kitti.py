@@ -52,6 +52,7 @@ for file in dataset_labels:
         continue
     
     new_file_content = ""
+    incorrect=False
     with open(dataset_labels_path+file,"r") as reading_file:
         for line in reading_file.readlines():
             stripped_line = line.strip()
@@ -61,10 +62,10 @@ for file in dataset_labels:
                     continue
                 new_file_content += new_line +"\n"
             else:
-                new_file_content += stripped_line+"\n"
+                incorrect=True
 
     # nothing is valid in this file, removing it
-    if new_file_content=="":
+    if new_file_content=="" or incorrect:
         print("removing file",file,"because nothing valid")
         os.remove(dataset_labels_path+file)
         os.remove(dataset_images_path+(file.split(".")[0])+".jpg")
