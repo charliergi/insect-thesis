@@ -101,7 +101,7 @@ contrast_center: 0.5
 training_config {
 enable_augmentation: True
 enable_qat: False
-batch_size_per_gpu: 1
+batch_size_per_gpu: 2
 num_epochs: 12
 pretrained_weights: "/workspace/tlt-experiments/data/faster_rcnn/resnet_34.hdf5"
 output_model: "/workspace/tlt-experiments/data/faster_rcnn/frcnn_kitti_resnet34.tlt"

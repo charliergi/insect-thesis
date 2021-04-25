@@ -1,0 +1,89 @@
+random_seed: 42
+yolov4_config {
+  big_anchor_shape: "[(662.73, 374.53),(879.24, 481.50),(703.77, 663.88)]"
+  mid_anchor_shape: "[(272.97, 444.13), (392.70, 343.68), (442.03, 453.12)]"
+  small_anchor_shape: "[(156.85, 199.63), (194.99, 367.89),(297.06, 245.06)]"
+  box_matching_iou: 0.25
+  arch: "resnet"
+  nlayers: 18
+  arch_conv_blocks: 2
+  loss_loc_weight: 0.8
+  loss_neg_obj_weights: 100.0
+  loss_class_weights: 0.5
+  label_smoothing: 0.0
+  big_grid_xy_extend: 0.05
+  mid_grid_xy_extend: 0.1
+  small_grid_xy_extend: 0.2
+  freeze_bn: false
+  #freeze_blocks: 0
+  force_relu: false
+}
+training_config {
+  batch_size_per_gpu: 2
+  num_epochs: 40
+  enable_qat: false
+  checkpoint_interval: 2
+  learning_rate {
+    soft_start_cosine_annealing_schedule {
+      min_learning_rate: 1e-7
+      max_learning_rate: 1e-4
+      soft_start: 0.3
+    }
+  }
+  regularizer {
+    type: NO_REG
+    weight: 3e-9
+  }
+  optimizer {
+    adam {
+      epsilon: 1e-7
+      beta1: 0.9
+      beta2: 0.999
+      amsgrad: false
+    }
+  }
+  pruned_model_path: "/workspace/tlt-experiments/insect-thesis/experiment_dir_pruned/yolov4_resnet18_pruned.tlt"
+}
+eval_config {
+  average_precision_mode: SAMPLE
+  batch_size: 8
+  matching_iou_threshold: 0.5
+}
+nms_config {
+  confidence_threshold: 0.001
+  clustering_iou_threshold: 0.5
+  top_k: 200
+}
+augmentation_config {
+  hue: 0.1
+  saturation: 1.5
+  exposure:1.5
+  vertical_flip:0
+  horizontal_flip: 0.5
+  jitter: 0.3
+  output_width: 1248
+  output_height: 384
+  randomize_input_shape_period: 0
+  mosaic_prob: 0.5
+  mosaic_min_ratio:0.2
+}
+dataset_config {
+  data_sources: {
+      label_directory_path: "/workspace/tlt-experiments/insect-thesis/data/kitti/fusion/train/labels"
+      image_directory_path: "/workspace/tlt-experiments/insect-thesis/data/kitti/fusion/train/images"
+  }
+  include_difficult_in_training: true
+  target_class_mapping {
+      key: "noctuidae"
+      value: "noctuidae"
+  }
+  target_class_mapping {
+      key: "geometridae"
+      value: "geometridae"
+  }
+  
+  validation_data_sources: {
+      label_directory_path: "/workspace/tlt-experiments/insect-thesis/data/kitti/fusion/val/label"
+      image_directory_path: "/workspace/tlt-experiments/insect-thesis/data/kitti/fusion/val/image"
+  }
+}
