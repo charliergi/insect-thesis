@@ -28,4 +28,6 @@ Mainly used as offline augmentation for testing purpose, this repository contain
 This folder contains all the datasets used in the training process of recognition algorithm. 
 
 ## faster_rcnn-notebooks 
-This folder contains notebooks used to run Faster RCNN model with Transfer Learning Toolkit from NVIDIA. This whole 
+This folder contains notebooks used to run Faster RCNN model with Transfer Learning Toolkit from NVIDIA. This whole folder is based on examples/faster_rcnn folder mounted when using the NGC TLT image.
+
+
