@@ -1,0 +1,99 @@
+random_seed: 42
+yolov4_config {
+  big_anchor_shape: "[(375.72, 319.24),(292.72, 424.00),(431.89, 437.00)]"
+  mid_anchor_shape: "[(184.30, 235.00),(273.99, 253.00),(214.00, 371.96)]"
+  small_anchor_shape: "[(26.00, 36.00),(84.00, 94.41),(142.65, 154.25)]"
+  box_matching_iou: 0.25
+  arch: "resnet"
+  nlayers: 18
+  arch_conv_blocks: 2
+  loss_loc_weight: 0.8
+  loss_neg_obj_weights: 100.0
+  loss_class_weights: 0.5
+  label_smoothing: 0.0
+  big_grid_xy_extend: 0.05
+  mid_grid_xy_extend: 0.1
+  small_grid_xy_extend: 0.2
+  freeze_bn: false
+  #freeze_blocks: 0
+  force_relu: false
+}
+training_config {
+  batch_size_per_gpu: 2
+  num_epochs: 40
+  enable_qat: false
+  checkpoint_interval: 1
+  learning_rate {
+    soft_start_cosine_annealing_schedule {
+      min_learning_rate: 1e-7
+      max_learning_rate: 1e-4
+      soft_start: 0.3
+    }
+  }
+  regularizer {
+    type: L1
+    weight: 3e-5
+  }
+  optimizer {
+    adam {
+      epsilon: 1e-7
+      beta1: 0.9
+      beta2: 0.999
+      amsgrad: false
+    }
+  }
+  pretrain_model_path: "/workspace/tlt-experiments/insect-thesis/data/faster_rcnn/resnet_18.hdf5"
+  #resume_model_path: "/workspace/tlt-experiments/insect-thesis/experiment_dir_unpruned/weights/yolov4_resnet18_epoch_010.tlt"
+  
+}
+eval_config {
+  average_precision_mode: SAMPLE
+  batch_size: 2
+  matching_iou_threshold: 0.5
+}
+nms_config {
+  confidence_threshold: 0.001
+  clustering_iou_threshold: 0.5
+  top_k: 200
+}
+augmentation_config {
+  hue: 0.1
+  saturation: 1.5
+  exposure:1.5
+  vertical_flip:0
+  horizontal_flip: 0.5
+  jitter: 0.3
+  output_width: 512
+  output_height: 512
+  randomize_input_shape_period: 0
+  mosaic_prob: 0.5
+  mosaic_min_ratio:0.2
+}
+dataset_config {
+  data_sources: {
+      label_directory_path: "/workspace/tlt-experiments/insect-thesis/data/kitti/fusion2/train/labels"
+      image_directory_path: "/workspace/tlt-experiments/insect-thesis/data/kitti/fusion2/train/images"
+  }
+  include_difficult_in_training: true
+  target_class_mapping {
+      key: "noctuidae"
+      value: "noctuidae"
+  }
+  target_class_mapping {
+      key: "geometridae"
+      value: "geometridae"
+  }
+  target_class_mapping {
+      key: "diptera"
+      value: "diptera"
+  }
+  target_class_mapping {
+      key: "coleoptera"
+      value: "coleoptera"
+  }
+  
+  validation_data_sources: {
+      label_directory_path: "/workspace/tlt-experiments/insect-thesis/data/kitti/fusion2/val/label"
+      image_directory_path: "/workspace/tlt-experiments/insect-thesis/data/kitti/fusion2/val/image"
+  }
+}

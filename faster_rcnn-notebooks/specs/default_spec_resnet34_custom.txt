@@ -25,7 +25,7 @@ width: 512
 image_scaling_factor: 1.0
 max_objects_num_per_image: 100
 }
-arch: "resnet:18"
+arch: "resnet:34"
 # https://medium.com/@smallfishbigsea/faster-r-cnn-explained-864d4fb7e3f8
 anchor_box_config {
 scale: 64.0
@@ -56,40 +56,40 @@ dataset_config {
 image_extension: 'jpg'
 
 target_class_mapping {
-key: 'noctuidae'
-value: 'noctuidae'
-}
-target_class_mapping {
 key: 'geometridae'
 value: 'geometridae'
-}
-target_class_mapping {
-key: 'coleoptera'
-value: 'coleoptera'
 }
 target_class_mapping {
 key: 'diptera'
 value: 'diptera'
 }
 target_class_mapping {
-key: 'odonata'
-value: 'odonata'
-}
-target_class_mapping {
-key: 'orthoptera'
-value: 'orthoptera'
+key: 'coleoptera'
+value: 'coleoptera'
 }
 target_class_mapping {
 key: 'hemiptera'
 value: 'hemiptera'
 }
 target_class_mapping {
+key: 'trichoptera'
+value: 'trichoptera'
+}
+target_class_mapping {
 key: 'hymenoptera'
 value: 'hymenoptera'
 }
 target_class_mapping {
-key: 'trichoptera'
-value: 'trichoptera'
+key: 'noctuidae'
+value: 'noctuidae'
+}
+target_class_mapping {
+key: 'orthoptera'
+value: 'orthoptera'
+}
+target_class_mapping {
+key: 'odonata'
+value: 'odonata'
 }
 
 validation_fold: 0
@@ -107,24 +107,25 @@ hflip_probability: 0.5
 vflip_probability: 0.5
 zoom_min: 0.4
 zoom_max: 1.0
-translate_max_x: 200
-translate_max_y: 200
+translate_max_x: 100
+translate_max_y: 100
+rotate_rad_max: 1.5708
 }
 color_augmentation {
 hue_rotation_max: 0.0
-saturation_shift_max: 0.0
-contrast_scale_max: 0.0
+saturation_shift_max: 0.2
+contrast_scale_max: 0.1
 contrast_center: 0.5
 }
 }
 training_config {
 enable_augmentation: True
 enable_qat: False
-batch_size_per_gpu: 1 # best 4
-num_epochs: 20
-pretrained_weights: "/workspace/tlt-experiments/insect-thesis/data/faster_rcnn/resnet_18.hdf5"
-#resume_from_model: "/workspace/tlt-experiments/insect-thesis/data/kitti/final/faster_rcnn/frcnn_kitti_resnet18.epoch14.tlt"
-output_model: "/workspace/tlt-experiments/insect-thesis/data/kitti/final/faster_rcnn/frcnn_kitti_resnet18.tlt"
+batch_size_per_gpu: 4 # best 4
+num_epochs: 12
+pretrained_weights: "/workspace/tlt-experiments/insect-thesis/data/faster_rcnn/resnet_34.hdf5"
+resume_from_model: "/workspace/tlt-experiments/insect-thesis/data/kitti/final/faster_rcnn/frcnn_kitti_resnet34.epoch10.tlt"
+output_model: "/workspace/tlt-experiments/insect-thesis/data/kitti/final/faster_rcnn/frcnn_kitti_resnet34.tlt"
 rpn_min_overlap: 0.3
 rpn_max_overlap: 0.7
 classifier_min_overlap: 0.0
@@ -185,7 +186,7 @@ lambda_cls_class: 1.0
 }
 inference_config {
 images_dir: '/workspace/tlt-experiments/insect-thesis/data/kitti/final/inference/images'
-model: '/workspace/tlt-experiments/insect-thesis/data/kitti/final/faster_rcnn/frcnn_kitti_resnet18.epoch1.tlt'
+model: '/workspace/tlt-experiments/insect-thesis/data/kitti/final/faster_rcnn/frcnn_kitti_resnet34.epoch12.tlt'
 batch_size: 1
 detection_image_output_dir: '/workspace/tlt-experiments/insect-thesis/data/kitti/final/faster_rcnn/inference_images'
 labels_dump_dir: '/workspace/tlt-experiments/insect-thesis/data/kitti/final/faster_rcnn/inference_labels'
@@ -198,7 +199,7 @@ classifier_nms_max_boxes: 40
 classifier_nms_overlap_threshold: 0.5
 }
 evaluation_config {
-model: '/workspace/tlt-experiments/insect-thesis/data/kitti/final/faster_rcnn/frcnn_kitti_resnet18.epoch1.tlt'
+model: '/workspace/tlt-experiments/insect-thesis/data/kitti/final/faster_rcnn/frcnn_kitti_resnet34.epoch12.tlt'
 batch_size: 1
 validation_period_during_training: 1
 labels_dump_dir: '/workspace/tlt-experiments/insect-thesis/data/kitti/final/faster_rcnn/inference_labels'

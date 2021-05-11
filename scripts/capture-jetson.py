@@ -87,6 +87,7 @@ def show_camera():
 
             if firstFrame is None or reset==0:
                 firstFrame=gray_frame
+                print("reset")
                 reset=600
                 print("reset !")
                 continue

@@ -1,0 +1,849 @@
+Using TensorFlow backend.
+WARNING:tensorflow:Deprecation warnings have been disabled. Set TF_ENABLE_DEPRECATION_WARNINGS=1 to re-enable them.
+Using TensorFlow backend.
+WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/horovod/tensorflow/__init__.py:117: The name tf.global_variables is deprecated. Please use tf.compat.v1.global_variables instead.
+
+2021-04-24 14:00:32,704 [WARNING] tensorflow: From /usr/local/lib/python3.6/dist-packages/horovod/tensorflow/__init__.py:117: The name tf.global_variables is deprecated. Please use tf.compat.v1.global_variables instead.
+
+WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/horovod/tensorflow/__init__.py:143: The name tf.get_default_graph is deprecated. Please use tf.compat.v1.get_default_graph instead.
+
+2021-04-24 14:00:32,705 [WARNING] tensorflow: From /usr/local/lib/python3.6/dist-packages/horovod/tensorflow/__init__.py:143: The name tf.get_default_graph is deprecated. Please use tf.compat.v1.get_default_graph instead.
+
+WARNING:tensorflow:From /home/vpraveen/.cache/dazel/_dazel_vpraveen/216c8b41e526c3295d3b802489ac2034/execroot/ai_infra/bazel-out/k8-fastbuild/bin/magnet/packages/iva/build_wheel.runfiles/ai_infra/iva/faster_rcnn/scripts/train.py:47: The name tf.ConfigProto is deprecated. Please use tf.compat.v1.ConfigProto instead.
+
+2021-04-24 14:00:33,508 [WARNING] tensorflow: From /home/vpraveen/.cache/dazel/_dazel_vpraveen/216c8b41e526c3295d3b802489ac2034/execroot/ai_infra/bazel-out/k8-fastbuild/bin/magnet/packages/iva/build_wheel.runfiles/ai_infra/iva/faster_rcnn/scripts/train.py:47: The name tf.ConfigProto is deprecated. Please use tf.compat.v1.ConfigProto instead.
+
+WARNING:tensorflow:From /home/vpraveen/.cache/dazel/_dazel_vpraveen/216c8b41e526c3295d3b802489ac2034/execroot/ai_infra/bazel-out/k8-fastbuild/bin/magnet/packages/iva/build_wheel.runfiles/ai_infra/iva/faster_rcnn/scripts/train.py:50: The name tf.Session is deprecated. Please use tf.compat.v1.Session instead.
+
+2021-04-24 14:00:33,509 [WARNING] tensorflow: From /home/vpraveen/.cache/dazel/_dazel_vpraveen/216c8b41e526c3295d3b802489ac2034/execroot/ai_infra/bazel-out/k8-fastbuild/bin/magnet/packages/iva/build_wheel.runfiles/ai_infra/iva/faster_rcnn/scripts/train.py:50: The name tf.Session is deprecated. Please use tf.compat.v1.Session instead.
+
+2021-04-24 14:00:45,818 [INFO] iva.faster_rcnn.spec_loader.spec_loader: Loading experiment spec at ./specs/default_spec_resnet34_custom.txt.
+WARNING:tensorflow:From /home/vpraveen/.cache/dazel/_dazel_vpraveen/216c8b41e526c3295d3b802489ac2034/execroot/ai_infra/bazel-out/k8-fastbuild/bin/magnet/packages/iva/build_wheel.runfiles/ai_infra/iva/faster_rcnn/utils/utils.py:381: The name tf.set_random_seed is deprecated. Please use tf.compat.v1.set_random_seed instead.
+
+2021-04-24 14:00:45,942 [WARNING] tensorflow: From /home/vpraveen/.cache/dazel/_dazel_vpraveen/216c8b41e526c3295d3b802489ac2034/execroot/ai_infra/bazel-out/k8-fastbuild/bin/magnet/packages/iva/build_wheel.runfiles/ai_infra/iva/faster_rcnn/utils/utils.py:381: The name tf.set_random_seed is deprecated. Please use tf.compat.v1.set_random_seed instead.
+
+2021-04-24 14:00:48,313 [INFO] modulus.blocks.data_loaders.multi_source_loader.data_loader: Serial augmentation enabled = False
+2021-04-24 14:00:48,313 [INFO] modulus.blocks.data_loaders.multi_source_loader.data_loader: Pseudo sharding enabled = False
+2021-04-24 14:00:48,313 [INFO] modulus.blocks.data_loaders.multi_source_loader.data_loader: Max Image Dimensions (all sources): (0, 0)
+2021-04-24 14:00:48,313 [INFO] modulus.blocks.data_loaders.multi_source_loader.data_loader: number of cpus: 12, io threads: 24, compute threads: 12, buffered batches: 4
+2021-04-24 14:00:48,313 [INFO] modulus.blocks.data_loaders.multi_source_loader.data_loader: total dataset size 37446, number of sources: 1, batch size per gpu: 4, steps: 9362
+WARNING:tensorflow:Entity <bound method DriveNetTFRecordsParser.__call__ of <iva.detectnet_v2.dataloader.drivenet_dataloader.DriveNetTFRecordsParser object at 0x7fb8f00db278>> could not be transformed and will be executed as-is. Please report this to the AutoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: Unable to locate the source code of <bound method DriveNetTFRecordsParser.__call__ of <iva.detectnet_v2.dataloader.drivenet_dataloader.DriveNetTFRecordsParser object at 0x7fb8f00db278>>. Note that functions defined in certain environments, like the interactive Python shell do not expose their source code. If that is the case, you should to define them in a .py source file. If you are certain the code is graph-compatible, wrap the call using @tf.autograph.do_not_convert. Original error: could not get source code
+2021-04-24 14:00:48,456 [WARNING] tensorflow: Entity <bound method DriveNetTFRecordsParser.__call__ of <iva.detectnet_v2.dataloader.drivenet_dataloader.DriveNetTFRecordsParser object at 0x7fb8f00db278>> could not be transformed and will be executed as-is. Please report this to the AutoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: Unable to locate the source code of <bound method DriveNetTFRecordsParser.__call__ of <iva.detectnet_v2.dataloader.drivenet_dataloader.DriveNetTFRecordsParser object at 0x7fb8f00db278>>. Note that functions defined in certain environments, like the interactive Python shell do not expose their source code. If that is the case, you should to define them in a .py source file. If you are certain the code is graph-compatible, wrap the call using @tf.autograph.do_not_convert. Original error: could not get source code
+2021-04-24 14:00:48,486 [INFO] iva.detectnet_v2.dataloader.default_dataloader: Bounding box coordinates were detected in the input specification! Bboxes will be automatically converted to polygon coordinates.
+2021-04-24 14:00:48,842 [INFO] modulus.blocks.data_loaders.multi_source_loader.data_loader: shuffle: True - shard 0 of 1
+2021-04-24 14:00:48,846 [INFO] modulus.blocks.data_loaders.multi_source_loader.data_loader: sampling 1 datasets with weights:
+2021-04-24 14:00:48,846 [INFO] modulus.blocks.data_loaders.multi_source_loader.data_loader: source: 0 weight: 1.000000
+WARNING:tensorflow:Entity <bound method Processor.__call__ of <modulus.blocks.data_loaders.multi_source_loader.processors.asset_loader.AssetLoader object at 0x7fb8da153390>> could not be transformed and will be executed as-is. Please report this to the AutoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: Unable to locate the source code of <bound method Processor.__call__ of <modulus.blocks.data_loaders.multi_source_loader.processors.asset_loader.AssetLoader object at 0x7fb8da153390>>. Note that functions defined in certain environments, like the interactive Python shell do not expose their source code. If that is the case, you should to define them in a .py source file. If you are certain the code is graph-compatible, wrap the call using @tf.autograph.do_not_convert. Original error: could not get source code
+2021-04-24 14:00:48,858 [WARNING] tensorflow: Entity <bound method Processor.__call__ of <modulus.blocks.data_loaders.multi_source_loader.processors.asset_loader.AssetLoader object at 0x7fb8da153390>> could not be transformed and will be executed as-is. Please report this to the AutoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: Unable to locate the source code of <bound method Processor.__call__ of <modulus.blocks.data_loaders.multi_source_loader.processors.asset_loader.AssetLoader object at 0x7fb8da153390>>. Note that functions defined in certain environments, like the interactive Python shell do not expose their source code. If that is the case, you should to define them in a .py source file. If you are certain the code is graph-compatible, wrap the call using @tf.autograph.do_not_convert. Original error: could not get source code
+WARNING:tensorflow:From /home/vpraveen/.cache/dazel/_dazel_vpraveen/216c8b41e526c3295d3b802489ac2034/execroot/ai_infra/bazel-out/k8-fastbuild/bin/magnet/packages/iva/build_wheel.runfiles/ai_infra/iva/faster_rcnn/data_loader/inputs_loader.py:221: The name tf.debugging.assert_less_equal is deprecated. Please use tf.compat.v1.debugging.assert_less_equal instead.
+
+2021-04-24 14:00:49,460 [WARNING] tensorflow: From /home/vpraveen/.cache/dazel/_dazel_vpraveen/216c8b41e526c3295d3b802489ac2034/execroot/ai_infra/bazel-out/k8-fastbuild/bin/magnet/packages/iva/build_wheel.runfiles/ai_infra/iva/faster_rcnn/data_loader/inputs_loader.py:221: The name tf.debugging.assert_less_equal is deprecated. Please use tf.compat.v1.debugging.assert_less_equal instead.
+
+2021-04-24 14:00:49,617 [INFO] __main__: Resuming training from /workspace/tlt-experiments/insect-thesis/data/kitti/final/faster_rcnn/frcnn_kitti_resnet34.epoch2.tlt
+WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/keras/backend/tensorflow_backend.py:517: The name tf.placeholder is deprecated. Please use tf.compat.v1.placeholder instead.
+
+2021-04-24 14:00:52,696 [WARNING] tensorflow: From /usr/local/lib/python3.6/dist-packages/keras/backend/tensorflow_backend.py:517: The name tf.placeholder is deprecated. Please use tf.compat.v1.placeholder instead.
+
+WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/keras/backend/tensorflow_backend.py:4138: The name tf.random_uniform is deprecated. Please use tf.random.uniform instead.
+
+2021-04-24 14:00:52,714 [WARNING] tensorflow: From /usr/local/lib/python3.6/dist-packages/keras/backend/tensorflow_backend.py:4138: The name tf.random_uniform is deprecated. Please use tf.random.uniform instead.
+
+WARNING:tensorflow:From /home/vpraveen/.cache/dazel/_dazel_vpraveen/216c8b41e526c3295d3b802489ac2034/execroot/ai_infra/bazel-out/k8-fastbuild/bin/magnet/packages/iva/build_wheel.runfiles/ai_infra/iva/faster_rcnn/layers/utils.py:76: The name tf.debugging.assert_less is deprecated. Please use tf.compat.v1.debugging.assert_less instead.
+
+2021-04-24 14:00:53,569 [WARNING] tensorflow: From /home/vpraveen/.cache/dazel/_dazel_vpraveen/216c8b41e526c3295d3b802489ac2034/execroot/ai_infra/bazel-out/k8-fastbuild/bin/magnet/packages/iva/build_wheel.runfiles/ai_infra/iva/faster_rcnn/layers/utils.py:76: The name tf.debugging.assert_less is deprecated. Please use tf.compat.v1.debugging.assert_less instead.
+
+WARNING:tensorflow:From /home/vpraveen/.cache/dazel/_dazel_vpraveen/216c8b41e526c3295d3b802489ac2034/execroot/ai_infra/bazel-out/k8-fastbuild/bin/magnet/packages/iva/build_wheel.runfiles/ai_infra/iva/faster_rcnn/layers/utils.py:382: The name tf.random_shuffle is deprecated. Please use tf.random.shuffle instead.
+
+2021-04-24 14:00:54,092 [WARNING] tensorflow: From /home/vpraveen/.cache/dazel/_dazel_vpraveen/216c8b41e526c3295d3b802489ac2034/execroot/ai_infra/bazel-out/k8-fastbuild/bin/magnet/packages/iva/build_wheel.runfiles/ai_infra/iva/faster_rcnn/layers/utils.py:382: The name tf.random_shuffle is deprecated. Please use tf.random.shuffle instead.
+
+WARNING:tensorflow:From /home/vpraveen/.cache/dazel/_dazel_vpraveen/216c8b41e526c3295d3b802489ac2034/execroot/ai_infra/bazel-out/k8-fastbuild/bin/magnet/packages/iva/build_wheel.runfiles/ai_infra/iva/faster_rcnn/layers/utils.py:255: The name tf.log is deprecated. Please use tf.math.log instead.
+
+2021-04-24 14:00:54,322 [WARNING] tensorflow: From /home/vpraveen/.cache/dazel/_dazel_vpraveen/216c8b41e526c3295d3b802489ac2034/execroot/ai_infra/bazel-out/k8-fastbuild/bin/magnet/packages/iva/build_wheel.runfiles/ai_infra/iva/faster_rcnn/layers/utils.py:255: The name tf.log is deprecated. Please use tf.math.log instead.
+
+WARNING:tensorflow:From /home/vpraveen/.cache/dazel/_dazel_vpraveen/216c8b41e526c3295d3b802489ac2034/execroot/ai_infra/bazel-out/k8-fastbuild/bin/magnet/packages/iva/build_wheel.runfiles/ai_infra/iva/faster_rcnn/layers/CropAndResize.py:78: The name tf.floor_div is deprecated. Please use tf.math.floordiv instead.
+
+2021-04-24 14:00:55,443 [WARNING] tensorflow: From /home/vpraveen/.cache/dazel/_dazel_vpraveen/216c8b41e526c3295d3b802489ac2034/execroot/ai_infra/bazel-out/k8-fastbuild/bin/magnet/packages/iva/build_wheel.runfiles/ai_infra/iva/faster_rcnn/layers/CropAndResize.py:78: The name tf.floor_div is deprecated. Please use tf.math.floordiv instead.
+
+WARNING:tensorflow:From /opt/nvidia/third_party/keras/tensorflow_backend.py:187: The name tf.nn.avg_pool is deprecated. Please use tf.nn.avg_pool2d instead.
+
+2021-04-24 14:00:55,628 [WARNING] tensorflow: From /opt/nvidia/third_party/keras/tensorflow_backend.py:187: The name tf.nn.avg_pool is deprecated. Please use tf.nn.avg_pool2d instead.
+
+WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/keras/backend/tensorflow_backend.py:174: The name tf.get_default_session is deprecated. Please use tf.compat.v1.get_default_session instead.
+
+2021-04-24 14:00:55,947 [WARNING] tensorflow: From /usr/local/lib/python3.6/dist-packages/keras/backend/tensorflow_backend.py:174: The name tf.get_default_session is deprecated. Please use tf.compat.v1.get_default_session instead.
+
+WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/keras/backend/tensorflow_backend.py:199: The name tf.is_variable_initialized is deprecated. Please use tf.compat.v1.is_variable_initialized instead.
+
+2021-04-24 14:00:55,948 [WARNING] tensorflow: From /usr/local/lib/python3.6/dist-packages/keras/backend/tensorflow_backend.py:199: The name tf.is_variable_initialized is deprecated. Please use tf.compat.v1.is_variable_initialized instead.
+
+WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/keras/backend/tensorflow_backend.py:206: The name tf.variables_initializer is deprecated. Please use tf.compat.v1.variables_initializer instead.
+
+2021-04-24 14:00:56,561 [WARNING] tensorflow: From /usr/local/lib/python3.6/dist-packages/keras/backend/tensorflow_backend.py:206: The name tf.variables_initializer is deprecated. Please use tf.compat.v1.variables_initializer instead.
+
+WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/keras/optimizers.py:790: The name tf.train.Optimizer is deprecated. Please use tf.compat.v1.train.Optimizer instead.
+
+2021-04-24 14:00:57,670 [WARNING] tensorflow: From /usr/local/lib/python3.6/dist-packages/keras/optimizers.py:790: The name tf.train.Optimizer is deprecated. Please use tf.compat.v1.train.Optimizer instead.
+
+WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/keras/backend/tensorflow_backend.py:986: The name tf.assign_add is deprecated. Please use tf.compat.v1.assign_add instead.
+
+2021-04-24 14:00:59,294 [WARNING] tensorflow: From /usr/local/lib/python3.6/dist-packages/keras/backend/tensorflow_backend.py:986: The name tf.assign_add is deprecated. Please use tf.compat.v1.assign_add instead.
+
+WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/keras/backend/tensorflow_backend.py:973: The name tf.assign is deprecated. Please use tf.compat.v1.assign instead.
+
+2021-04-24 14:00:59,536 [WARNING] tensorflow: From /usr/local/lib/python3.6/dist-packages/keras/backend/tensorflow_backend.py:973: The name tf.assign is deprecated. Please use tf.compat.v1.assign instead.
+
+WARNING:tensorflow:From /home/vpraveen/.cache/dazel/_dazel_vpraveen/216c8b41e526c3295d3b802489ac2034/execroot/ai_infra/bazel-out/k8-fastbuild/bin/magnet/packages/iva/build_wheel.runfiles/ai_infra/iva/faster_rcnn/layers/utils.py:64: The name tf.unsorted_segment_min is deprecated. Please use tf.math.unsorted_segment_min instead.
+
+2021-04-24 14:04:15,498 [WARNING] tensorflow: From /home/vpraveen/.cache/dazel/_dazel_vpraveen/216c8b41e526c3295d3b802489ac2034/execroot/ai_infra/bazel-out/k8-fastbuild/bin/magnet/packages/iva/build_wheel.runfiles/ai_infra/iva/faster_rcnn/layers/utils.py:64: The name tf.unsorted_segment_min is deprecated. Please use tf.math.unsorted_segment_min instead.
+
+2021-04-24 14:04:16,785 [INFO] __main__: Building validation dataset...
+2021-04-24 14:04:19,937 [INFO] modulus.blocks.data_loaders.multi_source_loader.data_loader: Serial augmentation enabled = False
+2021-04-24 14:04:19,937 [INFO] modulus.blocks.data_loaders.multi_source_loader.data_loader: Pseudo sharding enabled = False
+2021-04-24 14:04:19,938 [INFO] modulus.blocks.data_loaders.multi_source_loader.data_loader: Max Image Dimensions (all sources): (0, 0)
+2021-04-24 14:04:19,938 [INFO] modulus.blocks.data_loaders.multi_source_loader.data_loader: number of cpus: 12, io threads: 24, compute threads: 12, buffered batches: 4
+2021-04-24 14:04:19,938 [INFO] modulus.blocks.data_loaders.multi_source_loader.data_loader: total dataset size 6095, number of sources: 1, batch size per gpu: 1, steps: 6095
+WARNING:tensorflow:Entity <bound method DriveNetTFRecordsParser.__call__ of <iva.detectnet_v2.dataloader.drivenet_dataloader.DriveNetTFRecordsParser object at 0x7fb7a20c50f0>> could not be transformed and will be executed as-is. Please report this to the AutoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: Unable to locate the source code of <bound method DriveNetTFRecordsParser.__call__ of <iva.detectnet_v2.dataloader.drivenet_dataloader.DriveNetTFRecordsParser object at 0x7fb7a20c50f0>>. Note that functions defined in certain environments, like the interactive Python shell do not expose their source code. If that is the case, you should to define them in a .py source file. If you are certain the code is graph-compatible, wrap the call using @tf.autograph.do_not_convert. Original error: could not get source code
+2021-04-24 14:04:19,946 [WARNING] tensorflow: Entity <bound method DriveNetTFRecordsParser.__call__ of <iva.detectnet_v2.dataloader.drivenet_dataloader.DriveNetTFRecordsParser object at 0x7fb7a20c50f0>> could not be transformed and will be executed as-is. Please report this to the AutoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: Unable to locate the source code of <bound method DriveNetTFRecordsParser.__call__ of <iva.detectnet_v2.dataloader.drivenet_dataloader.DriveNetTFRecordsParser object at 0x7fb7a20c50f0>>. Note that functions defined in certain environments, like the interactive Python shell do not expose their source code. If that is the case, you should to define them in a .py source file. If you are certain the code is graph-compatible, wrap the call using @tf.autograph.do_not_convert. Original error: could not get source code
+2021-04-24 14:04:19,962 [INFO] iva.detectnet_v2.dataloader.default_dataloader: Bounding box coordinates were detected in the input specification! Bboxes will be automatically converted to polygon coordinates.
+2021-04-24 14:04:20,159 [INFO] modulus.blocks.data_loaders.multi_source_loader.data_loader: shuffle: False - shard 0 of 1
+2021-04-24 14:04:20,163 [INFO] modulus.blocks.data_loaders.multi_source_loader.data_loader: sampling 1 datasets with weights:
+2021-04-24 14:04:20,163 [INFO] modulus.blocks.data_loaders.multi_source_loader.data_loader: source: 0 weight: 1.000000
+WARNING:tensorflow:Entity <bound method Processor.__call__ of <modulus.blocks.data_loaders.multi_source_loader.processors.asset_loader.AssetLoader object at 0x7fb791f5ddd8>> could not be transformed and will be executed as-is. Please report this to the AutoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: Unable to locate the source code of <bound method Processor.__call__ of <modulus.blocks.data_loaders.multi_source_loader.processors.asset_loader.AssetLoader object at 0x7fb791f5ddd8>>. Note that functions defined in certain environments, like the interactive Python shell do not expose their source code. If that is the case, you should to define them in a .py source file. If you are certain the code is graph-compatible, wrap the call using @tf.autograph.do_not_convert. Original error: could not get source code
+2021-04-24 14:04:20,174 [WARNING] tensorflow: Entity <bound method Processor.__call__ of <modulus.blocks.data_loaders.multi_source_loader.processors.asset_loader.AssetLoader object at 0x7fb791f5ddd8>> could not be transformed and will be executed as-is. Please report this to the AutoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: Unable to locate the source code of <bound method Processor.__call__ of <modulus.blocks.data_loaders.multi_source_loader.processors.asset_loader.AssetLoader object at 0x7fb791f5ddd8>>. Note that functions defined in certain environments, like the interactive Python shell do not expose their source code. If that is the case, you should to define them in a .py source file. If you are certain the code is graph-compatible, wrap the call using @tf.autograph.do_not_convert. Original error: could not get source code
+2021-04-24 14:04:20,524 [INFO] __main__: Validation dataset built successfully!
+2021-04-24 14:04:20,524 [INFO] iva.faster_rcnn.models.model_builder: Building validation model, may take a while...
+WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/keras/backend/tensorflow_backend.py:1834: The name tf.nn.fused_batch_norm is deprecated. Please use tf.compat.v1.nn.fused_batch_norm instead.
+
+2021-04-24 14:04:20,561 [WARNING] tensorflow: From /usr/local/lib/python3.6/dist-packages/keras/backend/tensorflow_backend.py:1834: The name tf.nn.fused_batch_norm is deprecated. Please use tf.compat.v1.nn.fused_batch_norm instead.
+
+2021-04-24 14:11:35,105 [INFO] iva.faster_rcnn.models.model_builder: Validation model built successfully!
+__________________________________________________________________________________________________
+Layer (type)                    Output Shape         Param #     Connected to                     
+==================================================================================================
+input_image (InputLayer)        (None, 3, 512, 512)  0                                            
+__________________________________________________________________________________________________
+conv1 (Conv2D)                  (None, 64, 256, 256) 9408        input_image[0][0]                
+__________________________________________________________________________________________________
+bn_conv1 (BatchNormalization)   (None, 64, 256, 256) 256         conv1[0][0]                      
+__________________________________________________________________________________________________
+activation_1 (Activation)       (None, 64, 256, 256) 0           bn_conv1[0][0]                   
+__________________________________________________________________________________________________
+block_1a_conv_1 (Conv2D)        (None, 64, 128, 128) 36864       activation_1[0][0]               
+__________________________________________________________________________________________________
+block_1a_bn_1 (BatchNormalizati (None, 64, 128, 128) 256         block_1a_conv_1[0][0]            
+__________________________________________________________________________________________________
+block_1a_relu_1 (Activation)    (None, 64, 128, 128) 0           block_1a_bn_1[0][0]              
+__________________________________________________________________________________________________
+block_1a_conv_2 (Conv2D)        (None, 64, 128, 128) 36864       block_1a_relu_1[0][0]            
+__________________________________________________________________________________________________
+block_1a_conv_shortcut (Conv2D) (None, 64, 128, 128) 4096        activation_1[0][0]               
+__________________________________________________________________________________________________
+block_1a_bn_2 (BatchNormalizati (None, 64, 128, 128) 256         block_1a_conv_2[0][0]            
+__________________________________________________________________________________________________
+block_1a_bn_shortcut (BatchNorm (None, 64, 128, 128) 256         block_1a_conv_shortcut[0][0]     
+__________________________________________________________________________________________________
+add_1 (Add)                     (None, 64, 128, 128) 0           block_1a_bn_2[0][0]              
+                                                                 block_1a_bn_shortcut[0][0]       
+__________________________________________________________________________________________________
+block_1a_relu (Activation)      (None, 64, 128, 128) 0           add_1[0][0]                      
+__________________________________________________________________________________________________
+block_1b_conv_1 (Conv2D)        (None, 64, 128, 128) 36864       block_1a_relu[0][0]              
+__________________________________________________________________________________________________
+block_1b_bn_1 (BatchNormalizati (None, 64, 128, 128) 256         block_1b_conv_1[0][0]            
+__________________________________________________________________________________________________
+block_1b_relu_1 (Activation)    (None, 64, 128, 128) 0           block_1b_bn_1[0][0]              
+__________________________________________________________________________________________________
+block_1b_conv_2 (Conv2D)        (None, 64, 128, 128) 36864       block_1b_relu_1[0][0]            
+__________________________________________________________________________________________________
+block_1b_conv_shortcut (Conv2D) (None, 64, 128, 128) 4096        block_1a_relu[0][0]              
+__________________________________________________________________________________________________
+block_1b_bn_2 (BatchNormalizati (None, 64, 128, 128) 256         block_1b_conv_2[0][0]            
+__________________________________________________________________________________________________
+block_1b_bn_shortcut (BatchNorm (None, 64, 128, 128) 256         block_1b_conv_shortcut[0][0]     
+__________________________________________________________________________________________________
+add_2 (Add)                     (None, 64, 128, 128) 0           block_1b_bn_2[0][0]              
+                                                                 block_1b_bn_shortcut[0][0]       
+__________________________________________________________________________________________________
+block_1b_relu (Activation)      (None, 64, 128, 128) 0           add_2[0][0]                      
+__________________________________________________________________________________________________
+block_1c_conv_1 (Conv2D)        (None, 64, 128, 128) 36864       block_1b_relu[0][0]              
+__________________________________________________________________________________________________
+block_1c_bn_1 (BatchNormalizati (None, 64, 128, 128) 256         block_1c_conv_1[0][0]            
+__________________________________________________________________________________________________
+block_1c_relu_1 (Activation)    (None, 64, 128, 128) 0           block_1c_bn_1[0][0]              
+__________________________________________________________________________________________________
+block_1c_conv_2 (Conv2D)        (None, 64, 128, 128) 36864       block_1c_relu_1[0][0]            
+__________________________________________________________________________________________________
+block_1c_conv_shortcut (Conv2D) (None, 64, 128, 128) 4096        block_1b_relu[0][0]              
+__________________________________________________________________________________________________
+block_1c_bn_2 (BatchNormalizati (None, 64, 128, 128) 256         block_1c_conv_2[0][0]            
+__________________________________________________________________________________________________
+block_1c_bn_shortcut (BatchNorm (None, 64, 128, 128) 256         block_1c_conv_shortcut[0][0]     
+__________________________________________________________________________________________________
+add_3 (Add)                     (None, 64, 128, 128) 0           block_1c_bn_2[0][0]              
+                                                                 block_1c_bn_shortcut[0][0]       
+__________________________________________________________________________________________________
+block_1c_relu (Activation)      (None, 64, 128, 128) 0           add_3[0][0]                      
+__________________________________________________________________________________________________
+block_2a_conv_1 (Conv2D)        (None, 128, 64, 64)  73728       block_1c_relu[0][0]              
+__________________________________________________________________________________________________
+block_2a_bn_1 (BatchNormalizati (None, 128, 64, 64)  512         block_2a_conv_1[0][0]            
+__________________________________________________________________________________________________
+block_2a_relu_1 (Activation)    (None, 128, 64, 64)  0           block_2a_bn_1[0][0]              
+__________________________________________________________________________________________________
+block_2a_conv_2 (Conv2D)        (None, 128, 64, 64)  147456      block_2a_relu_1[0][0]            
+__________________________________________________________________________________________________
+block_2a_conv_shortcut (Conv2D) (None, 128, 64, 64)  8192        block_1c_relu[0][0]              
+__________________________________________________________________________________________________
+block_2a_bn_2 (BatchNormalizati (None, 128, 64, 64)  512         block_2a_conv_2[0][0]            
+__________________________________________________________________________________________________
+block_2a_bn_shortcut (BatchNorm (None, 128, 64, 64)  512         block_2a_conv_shortcut[0][0]     
+__________________________________________________________________________________________________
+add_4 (Add)                     (None, 128, 64, 64)  0           block_2a_bn_2[0][0]              
+                                                                 block_2a_bn_shortcut[0][0]       
+__________________________________________________________________________________________________
+block_2a_relu (Activation)      (None, 128, 64, 64)  0           add_4[0][0]                      
+__________________________________________________________________________________________________
+block_2b_conv_1 (Conv2D)        (None, 128, 64, 64)  147456      block_2a_relu[0][0]              
+__________________________________________________________________________________________________
+block_2b_bn_1 (BatchNormalizati (None, 128, 64, 64)  512         block_2b_conv_1[0][0]            
+__________________________________________________________________________________________________
+block_2b_relu_1 (Activation)    (None, 128, 64, 64)  0           block_2b_bn_1[0][0]              
+__________________________________________________________________________________________________
+block_2b_conv_2 (Conv2D)        (None, 128, 64, 64)  147456      block_2b_relu_1[0][0]            
+__________________________________________________________________________________________________
+block_2b_conv_shortcut (Conv2D) (None, 128, 64, 64)  16384       block_2a_relu[0][0]              
+__________________________________________________________________________________________________
+block_2b_bn_2 (BatchNormalizati (None, 128, 64, 64)  512         block_2b_conv_2[0][0]            
+__________________________________________________________________________________________________
+block_2b_bn_shortcut (BatchNorm (None, 128, 64, 64)  512         block_2b_conv_shortcut[0][0]     
+__________________________________________________________________________________________________
+add_5 (Add)                     (None, 128, 64, 64)  0           block_2b_bn_2[0][0]              
+                                                                 block_2b_bn_shortcut[0][0]       
+__________________________________________________________________________________________________
+block_2b_relu (Activation)      (None, 128, 64, 64)  0           add_5[0][0]                      
+__________________________________________________________________________________________________
+block_2c_conv_1 (Conv2D)        (None, 128, 64, 64)  147456      block_2b_relu[0][0]              
+__________________________________________________________________________________________________
+block_2c_bn_1 (BatchNormalizati (None, 128, 64, 64)  512         block_2c_conv_1[0][0]            
+__________________________________________________________________________________________________
+block_2c_relu_1 (Activation)    (None, 128, 64, 64)  0           block_2c_bn_1[0][0]              
+__________________________________________________________________________________________________
+block_2c_conv_2 (Conv2D)        (None, 128, 64, 64)  147456      block_2c_relu_1[0][0]            
+__________________________________________________________________________________________________
+block_2c_conv_shortcut (Conv2D) (None, 128, 64, 64)  16384       block_2b_relu[0][0]              
+__________________________________________________________________________________________________
+block_2c_bn_2 (BatchNormalizati (None, 128, 64, 64)  512         block_2c_conv_2[0][0]            
+__________________________________________________________________________________________________
+block_2c_bn_shortcut (BatchNorm (None, 128, 64, 64)  512         block_2c_conv_shortcut[0][0]     
+__________________________________________________________________________________________________
+add_6 (Add)                     (None, 128, 64, 64)  0           block_2c_bn_2[0][0]              
+                                                                 block_2c_bn_shortcut[0][0]       
+__________________________________________________________________________________________________
+block_2c_relu (Activation)      (None, 128, 64, 64)  0           add_6[0][0]                      
+__________________________________________________________________________________________________
+block_2d_conv_1 (Conv2D)        (None, 128, 64, 64)  147456      block_2c_relu[0][0]              
+__________________________________________________________________________________________________
+block_2d_bn_1 (BatchNormalizati (None, 128, 64, 64)  512         block_2d_conv_1[0][0]            
+__________________________________________________________________________________________________
+block_2d_relu_1 (Activation)    (None, 128, 64, 64)  0           block_2d_bn_1[0][0]              
+__________________________________________________________________________________________________
+block_2d_conv_2 (Conv2D)        (None, 128, 64, 64)  147456      block_2d_relu_1[0][0]            
+__________________________________________________________________________________________________
+block_2d_conv_shortcut (Conv2D) (None, 128, 64, 64)  16384       block_2c_relu[0][0]              
+__________________________________________________________________________________________________
+block_2d_bn_2 (BatchNormalizati (None, 128, 64, 64)  512         block_2d_conv_2[0][0]            
+__________________________________________________________________________________________________
+block_2d_bn_shortcut (BatchNorm (None, 128, 64, 64)  512         block_2d_conv_shortcut[0][0]     
+__________________________________________________________________________________________________
+add_7 (Add)                     (None, 128, 64, 64)  0           block_2d_bn_2[0][0]              
+                                                                 block_2d_bn_shortcut[0][0]       
+__________________________________________________________________________________________________
+block_2d_relu (Activation)      (None, 128, 64, 64)  0           add_7[0][0]                      
+__________________________________________________________________________________________________
+block_3a_conv_1 (Conv2D)        (None, 256, 32, 32)  294912      block_2d_relu[0][0]              
+__________________________________________________________________________________________________
+block_3a_bn_1 (BatchNormalizati (None, 256, 32, 32)  1024        block_3a_conv_1[0][0]            
+__________________________________________________________________________________________________
+block_3a_relu_1 (Activation)    (None, 256, 32, 32)  0           block_3a_bn_1[0][0]              
+__________________________________________________________________________________________________
+block_3a_conv_2 (Conv2D)        (None, 256, 32, 32)  589824      block_3a_relu_1[0][0]            
+__________________________________________________________________________________________________
+block_3a_conv_shortcut (Conv2D) (None, 256, 32, 32)  32768       block_2d_relu[0][0]              
+__________________________________________________________________________________________________
+block_3a_bn_2 (BatchNormalizati (None, 256, 32, 32)  1024        block_3a_conv_2[0][0]            
+__________________________________________________________________________________________________
+block_3a_bn_shortcut (BatchNorm (None, 256, 32, 32)  1024        block_3a_conv_shortcut[0][0]     
+__________________________________________________________________________________________________
+add_8 (Add)                     (None, 256, 32, 32)  0           block_3a_bn_2[0][0]              
+                                                                 block_3a_bn_shortcut[0][0]       
+__________________________________________________________________________________________________
+block_3a_relu (Activation)      (None, 256, 32, 32)  0           add_8[0][0]                      
+__________________________________________________________________________________________________
+block_3b_conv_1 (Conv2D)        (None, 256, 32, 32)  589824      block_3a_relu[0][0]              
+__________________________________________________________________________________________________
+block_3b_bn_1 (BatchNormalizati (None, 256, 32, 32)  1024        block_3b_conv_1[0][0]            
+__________________________________________________________________________________________________
+block_3b_relu_1 (Activation)    (None, 256, 32, 32)  0           block_3b_bn_1[0][0]              
+__________________________________________________________________________________________________
+block_3b_conv_2 (Conv2D)        (None, 256, 32, 32)  589824      block_3b_relu_1[0][0]            
+__________________________________________________________________________________________________
+block_3b_conv_shortcut (Conv2D) (None, 256, 32, 32)  65536       block_3a_relu[0][0]              
+__________________________________________________________________________________________________
+block_3b_bn_2 (BatchNormalizati (None, 256, 32, 32)  1024        block_3b_conv_2[0][0]            
+__________________________________________________________________________________________________
+block_3b_bn_shortcut (BatchNorm (None, 256, 32, 32)  1024        block_3b_conv_shortcut[0][0]     
+__________________________________________________________________________________________________
+add_9 (Add)                     (None, 256, 32, 32)  0           block_3b_bn_2[0][0]              
+                                                                 block_3b_bn_shortcut[0][0]       
+__________________________________________________________________________________________________
+block_3b_relu (Activation)      (None, 256, 32, 32)  0           add_9[0][0]                      
+__________________________________________________________________________________________________
+block_3c_conv_1 (Conv2D)        (None, 256, 32, 32)  589824      block_3b_relu[0][0]              
+__________________________________________________________________________________________________
+block_3c_bn_1 (BatchNormalizati (None, 256, 32, 32)  1024        block_3c_conv_1[0][0]            
+__________________________________________________________________________________________________
+block_3c_relu_1 (Activation)    (None, 256, 32, 32)  0           block_3c_bn_1[0][0]              
+__________________________________________________________________________________________________
+block_3c_conv_2 (Conv2D)        (None, 256, 32, 32)  589824      block_3c_relu_1[0][0]            
+__________________________________________________________________________________________________
+block_3c_conv_shortcut (Conv2D) (None, 256, 32, 32)  65536       block_3b_relu[0][0]              
+__________________________________________________________________________________________________
+block_3c_bn_2 (BatchNormalizati (None, 256, 32, 32)  1024        block_3c_conv_2[0][0]            
+__________________________________________________________________________________________________
+block_3c_bn_shortcut (BatchNorm (None, 256, 32, 32)  1024        block_3c_conv_shortcut[0][0]     
+__________________________________________________________________________________________________
+add_10 (Add)                    (None, 256, 32, 32)  0           block_3c_bn_2[0][0]              
+                                                                 block_3c_bn_shortcut[0][0]       
+__________________________________________________________________________________________________
+block_3c_relu (Activation)      (None, 256, 32, 32)  0           add_10[0][0]                     
+__________________________________________________________________________________________________
+block_3d_conv_1 (Conv2D)        (None, 256, 32, 32)  589824      block_3c_relu[0][0]              
+__________________________________________________________________________________________________
+block_3d_bn_1 (BatchNormalizati (None, 256, 32, 32)  1024        block_3d_conv_1[0][0]            
+__________________________________________________________________________________________________
+block_3d_relu_1 (Activation)    (None, 256, 32, 32)  0           block_3d_bn_1[0][0]              
+__________________________________________________________________________________________________
+block_3d_conv_2 (Conv2D)        (None, 256, 32, 32)  589824      block_3d_relu_1[0][0]            
+__________________________________________________________________________________________________
+block_3d_conv_shortcut (Conv2D) (None, 256, 32, 32)  65536       block_3c_relu[0][0]              
+__________________________________________________________________________________________________
+block_3d_bn_2 (BatchNormalizati (None, 256, 32, 32)  1024        block_3d_conv_2[0][0]            
+__________________________________________________________________________________________________
+block_3d_bn_shortcut (BatchNorm (None, 256, 32, 32)  1024        block_3d_conv_shortcut[0][0]     
+__________________________________________________________________________________________________
+add_11 (Add)                    (None, 256, 32, 32)  0           block_3d_bn_2[0][0]              
+                                                                 block_3d_bn_shortcut[0][0]       
+__________________________________________________________________________________________________
+block_3d_relu (Activation)      (None, 256, 32, 32)  0           add_11[0][0]                     
+__________________________________________________________________________________________________
+block_3e_conv_1 (Conv2D)        (None, 256, 32, 32)  589824      block_3d_relu[0][0]              
+__________________________________________________________________________________________________
+block_3e_bn_1 (BatchNormalizati (None, 256, 32, 32)  1024        block_3e_conv_1[0][0]            
+__________________________________________________________________________________________________
+block_3e_relu_1 (Activation)    (None, 256, 32, 32)  0           block_3e_bn_1[0][0]              
+__________________________________________________________________________________________________
+block_3e_conv_2 (Conv2D)        (None, 256, 32, 32)  589824      block_3e_relu_1[0][0]            
+__________________________________________________________________________________________________
+block_3e_conv_shortcut (Conv2D) (None, 256, 32, 32)  65536       block_3d_relu[0][0]              
+__________________________________________________________________________________________________
+block_3e_bn_2 (BatchNormalizati (None, 256, 32, 32)  1024        block_3e_conv_2[0][0]            
+__________________________________________________________________________________________________
+block_3e_bn_shortcut (BatchNorm (None, 256, 32, 32)  1024        block_3e_conv_shortcut[0][0]     
+__________________________________________________________________________________________________
+add_12 (Add)                    (None, 256, 32, 32)  0           block_3e_bn_2[0][0]              
+                                                                 block_3e_bn_shortcut[0][0]       
+__________________________________________________________________________________________________
+block_3e_relu (Activation)      (None, 256, 32, 32)  0           add_12[0][0]                     
+__________________________________________________________________________________________________
+block_3f_conv_1 (Conv2D)        (None, 256, 32, 32)  589824      block_3e_relu[0][0]              
+__________________________________________________________________________________________________
+block_3f_bn_1 (BatchNormalizati (None, 256, 32, 32)  1024        block_3f_conv_1[0][0]            
+__________________________________________________________________________________________________
+block_3f_relu_1 (Activation)    (None, 256, 32, 32)  0           block_3f_bn_1[0][0]              
+__________________________________________________________________________________________________
+block_3f_conv_2 (Conv2D)        (None, 256, 32, 32)  589824      block_3f_relu_1[0][0]            
+__________________________________________________________________________________________________
+block_3f_conv_shortcut (Conv2D) (None, 256, 32, 32)  65536       block_3e_relu[0][0]              
+__________________________________________________________________________________________________
+block_3f_bn_2 (BatchNormalizati (None, 256, 32, 32)  1024        block_3f_conv_2[0][0]            
+__________________________________________________________________________________________________
+block_3f_bn_shortcut (BatchNorm (None, 256, 32, 32)  1024        block_3f_conv_shortcut[0][0]     
+__________________________________________________________________________________________________
+add_13 (Add)                    (None, 256, 32, 32)  0           block_3f_bn_2[0][0]              
+                                                                 block_3f_bn_shortcut[0][0]       
+__________________________________________________________________________________________________
+block_3f_relu (Activation)      (None, 256, 32, 32)  0           add_13[0][0]                     
+__________________________________________________________________________________________________
+rpn_conv1 (Conv2D)              (None, 512, 32, 32)  1180160     block_3f_relu[0][0]              
+__________________________________________________________________________________________________
+rpn_out_class (Conv2D)          (None, 9, 32, 32)    4617        rpn_conv1[0][0]                  
+__________________________________________________________________________________________________
+rpn_out_regress (Conv2D)        (None, 36, 32, 32)   18468       rpn_conv1[0][0]                  
+__________________________________________________________________________________________________
+proposal_1 (Proposal)           (None, 2000, 4)      0           rpn_out_class[0][0]              
+                                                                 rpn_out_regress[0][0]            
+                                                                 input_image[0][0]                
+__________________________________________________________________________________________________
+input_gt_cls (InputLayer)       (None, None)         0                                            
+__________________________________________________________________________________________________
+input_gt_bbox (InputLayer)      (None, None, 4)      0                                            
+__________________________________________________________________________________________________
+proposal_target_1 (ProposalTarg [(None, 256, 4), (No 0           proposal_1[0][0]                 
+                                                                 input_gt_cls[0][0]               
+                                                                 input_gt_bbox[0][0]              
+__________________________________________________________________________________________________
+crop_and_resize_1 (CropAndResiz (None, 256, 256, 7,  0           block_3f_relu[0][0]              
+                                                                 proposal_target_1[0][0]          
+                                                                 input_image[0][0]                
+__________________________________________________________________________________________________
+time_distributed_1 (TimeDistrib (None, 256, 512, 7,  1179648     crop_and_resize_1[0][0]          
+__________________________________________________________________________________________________
+time_distributed_2 (TimeDistrib (None, 256, 512, 7,  2048        time_distributed_1[0][0]         
+__________________________________________________________________________________________________
+block_4a_relu_1 (Activation)    (None, 256, 512, 7,  0           time_distributed_2[0][0]         
+__________________________________________________________________________________________________
+time_distributed_3 (TimeDistrib (None, 256, 512, 7,  2359296     block_4a_relu_1[0][0]            
+__________________________________________________________________________________________________
+time_distributed_5 (TimeDistrib (None, 256, 512, 7,  131072      crop_and_resize_1[0][0]          
+__________________________________________________________________________________________________
+time_distributed_4 (TimeDistrib (None, 256, 512, 7,  2048        time_distributed_3[0][0]         
+__________________________________________________________________________________________________
+time_distributed_6 (TimeDistrib (None, 256, 512, 7,  2048        time_distributed_5[0][0]         
+__________________________________________________________________________________________________
+add_14 (Add)                    (None, 256, 512, 7,  0           time_distributed_4[0][0]         
+                                                                 time_distributed_6[0][0]         
+__________________________________________________________________________________________________
+block_4a_relu (Activation)      (None, 256, 512, 7,  0           add_14[0][0]                     
+__________________________________________________________________________________________________
+time_distributed_7 (TimeDistrib (None, 256, 512, 7,  2359296     block_4a_relu[0][0]              
+__________________________________________________________________________________________________
+time_distributed_8 (TimeDistrib (None, 256, 512, 7,  2048        time_distributed_7[0][0]         
+__________________________________________________________________________________________________
+block_4b_relu_1 (Activation)    (None, 256, 512, 7,  0           time_distributed_8[0][0]         
+__________________________________________________________________________________________________
+time_distributed_9 (TimeDistrib (None, 256, 512, 7,  2359296     block_4b_relu_1[0][0]            
+__________________________________________________________________________________________________
+time_distributed_11 (TimeDistri (None, 256, 512, 7,  262144      block_4a_relu[0][0]              
+__________________________________________________________________________________________________
+time_distributed_10 (TimeDistri (None, 256, 512, 7,  2048        time_distributed_9[0][0]         
+__________________________________________________________________________________________________
+time_distributed_12 (TimeDistri (None, 256, 512, 7,  2048        time_distributed_11[0][0]        
+__________________________________________________________________________________________________
+add_15 (Add)                    (None, 256, 512, 7,  0           time_distributed_10[0][0]        
+                                                                 time_distributed_12[0][0]        
+__________________________________________________________________________________________________
+block_4b_relu (Activation)      (None, 256, 512, 7,  0           add_15[0][0]                     
+__________________________________________________________________________________________________
+time_distributed_13 (TimeDistri (None, 256, 512, 7,  2359296     block_4b_relu[0][0]              
+__________________________________________________________________________________________________
+time_distributed_14 (TimeDistri (None, 256, 512, 7,  2048        time_distributed_13[0][0]        
+__________________________________________________________________________________________________
+block_4c_relu_1 (Activation)    (None, 256, 512, 7,  0           time_distributed_14[0][0]        
+__________________________________________________________________________________________________
+time_distributed_15 (TimeDistri (None, 256, 512, 7,  2359296     block_4c_relu_1[0][0]            
+__________________________________________________________________________________________________
+time_distributed_17 (TimeDistri (None, 256, 512, 7,  262144      block_4b_relu[0][0]              
+__________________________________________________________________________________________________
+time_distributed_16 (TimeDistri (None, 256, 512, 7,  2048        time_distributed_15[0][0]        
+__________________________________________________________________________________________________
+time_distributed_18 (TimeDistri (None, 256, 512, 7,  2048        time_distributed_17[0][0]        
+__________________________________________________________________________________________________
+add_16 (Add)                    (None, 256, 512, 7,  0           time_distributed_16[0][0]        
+                                                                 time_distributed_18[0][0]        
+__________________________________________________________________________________________________
+block_4c_relu (Activation)      (None, 256, 512, 7,  0           add_16[0][0]                     
+__________________________________________________________________________________________________
+time_distributed_19 (TimeDistri (None, 256, 512, 1,  0           block_4c_relu[0][0]              
+__________________________________________________________________________________________________
+time_distributed_flatten (TimeD (None, 256, 512)     0           time_distributed_19[0][0]        
+__________________________________________________________________________________________________
+dense_class_td (TimeDistributed (None, 256, 10)      5130        time_distributed_flatten[0][0]   
+__________________________________________________________________________________________________
+dense_regress_td (TimeDistribut (None, 256, 36)      18468       time_distributed_flatten[0][0]   
+==================================================================================================
+Total params: 23,453,467
+Trainable params: 23,187,803
+Non-trainable params: 265,664
+__________________________________________________________________________________________________
+WARNING:tensorflow:From /home/vpraveen/.cache/dazel/_dazel_vpraveen/216c8b41e526c3295d3b802489ac2034/execroot/ai_infra/bazel-out/k8-fastbuild/bin/magnet/packages/iva/build_wheel.runfiles/ai_infra/iva/faster_rcnn/utils/utils.py:22: The name tf.local_variables_initializer is deprecated. Please use tf.compat.v1.local_variables_initializer instead.
+
+2021-04-24 14:11:35,228 [WARNING] tensorflow: From /home/vpraveen/.cache/dazel/_dazel_vpraveen/216c8b41e526c3295d3b802489ac2034/execroot/ai_infra/bazel-out/k8-fastbuild/bin/magnet/packages/iva/build_wheel.runfiles/ai_infra/iva/faster_rcnn/utils/utils.py:22: The name tf.local_variables_initializer is deprecated. Please use tf.compat.v1.local_variables_initializer instead.
+
+WARNING:tensorflow:From /home/vpraveen/.cache/dazel/_dazel_vpraveen/216c8b41e526c3295d3b802489ac2034/execroot/ai_infra/bazel-out/k8-fastbuild/bin/magnet/packages/iva/build_wheel.runfiles/ai_infra/iva/faster_rcnn/utils/utils.py:23: The name tf.tables_initializer is deprecated. Please use tf.compat.v1.tables_initializer instead.
+
+2021-04-24 14:11:35,228 [WARNING] tensorflow: From /home/vpraveen/.cache/dazel/_dazel_vpraveen/216c8b41e526c3295d3b802489ac2034/execroot/ai_infra/bazel-out/k8-fastbuild/bin/magnet/packages/iva/build_wheel.runfiles/ai_infra/iva/faster_rcnn/utils/utils.py:23: The name tf.tables_initializer is deprecated. Please use tf.compat.v1.tables_initializer instead.
+
+WARNING:tensorflow:From /home/vpraveen/.cache/dazel/_dazel_vpraveen/216c8b41e526c3295d3b802489ac2034/execroot/ai_infra/bazel-out/k8-fastbuild/bin/magnet/packages/iva/build_wheel.runfiles/ai_infra/iva/faster_rcnn/utils/utils.py:24: The name tf.get_collection is deprecated. Please use tf.compat.v1.get_collection instead.
+
+2021-04-24 14:11:35,229 [WARNING] tensorflow: From /home/vpraveen/.cache/dazel/_dazel_vpraveen/216c8b41e526c3295d3b802489ac2034/execroot/ai_infra/bazel-out/k8-fastbuild/bin/magnet/packages/iva/build_wheel.runfiles/ai_infra/iva/faster_rcnn/utils/utils.py:24: The name tf.get_collection is deprecated. Please use tf.compat.v1.get_collection instead.
+
+Epoch 1/12
+18725/18725 [==============================] - 3081s 188ms/step - loss: 0.6425 - rpn_out_class_loss: 0.0311 - rpn_out_regress_loss: 0.0089 - dense_class_td_loss: 0.2455 - dense_regress_td_loss: 0.1125 - dense_class_td_acc: 0.7789
+Doing validation at epoch 1(1-based index)...
+100%|███████████████████████████████████████| 6096/6096 [03:26<00:00, 29.49it/s]
+==========================================================================================
+Class               AP                  precision           recall              RPN_recall          
+------------------------------------------------------------------------------------------
+coleoptera          0.2486              0.6588              0.2944              0.9536              
+------------------------------------------------------------------------------------------
+diptera             0.3923              0.2924              0.6336              0.9674              
+------------------------------------------------------------------------------------------
+geometridae         0.6056              0.6143              0.6568              0.9764              
+------------------------------------------------------------------------------------------
+hemiptera           0.3623              0.2289              0.6442              0.9352              
+------------------------------------------------------------------------------------------
+hymenoptera         0.0000              0.0000              0.0000              0.9333              
+------------------------------------------------------------------------------------------
+noctuidae           0.5024              0.5378              0.6632              0.9940              
+------------------------------------------------------------------------------------------
+odonata             0.4423              0.4066              0.6318              0.9779              
+------------------------------------------------------------------------------------------
+orthoptera          0.0359              0.3106              0.1058              0.9609              
+------------------------------------------------------------------------------------------
+trichoptera         0.5396              0.7688              0.5785              0.9745              
+------------------------------------------------------------------------------------------
+mAP@0.5 = 0.3477              
+Validation done!
+Epoch 2/12
+18725/18725 [==============================] - 3093s 165ms/step - loss: 0.4483 - rpn_out_class_loss: 0.0163 - rpn_out_regress_loss: 0.0037 - dense_class_td_loss: 0.1379 - dense_regress_td_loss: 0.0673 - dense_class_td_acc: 0.9202
+Doing validation at epoch 2(1-based index)...
+100%|███████████████████████████████████████| 6096/6096 [03:26<00:00, 29.49it/s]
+==========================================================================================
+Class               AP                  precision           recall              RPN_recall          
+------------------------------------------------------------------------------------------
+coleoptera          0.1823              0.6517              0.2308              0.9469              
+------------------------------------------------------------------------------------------
+diptera             0.1555              0.7333              0.1791              0.9512              
+------------------------------------------------------------------------------------------
+geometridae         0.6184              0.3733              0.7982              0.9720              
+------------------------------------------------------------------------------------------
+hemiptera           0.0102              1.0000              0.0102              0.9301              
+------------------------------------------------------------------------------------------
+hymenoptera         0.0810              0.6639              0.1121              0.9078              
+------------------------------------------------------------------------------------------
+noctuidae           0.1138              0.8400              0.1263              0.9880              
+------------------------------------------------------------------------------------------
+odonata             0.4629              0.3420              0.6215              0.9705              
+------------------------------------------------------------------------------------------
+orthoptera          0.1062              0.4494              0.1739              0.9681              
+------------------------------------------------------------------------------------------
+trichoptera         0.6010              0.2467              0.8119              0.9745              
+------------------------------------------------------------------------------------------
+mAP@0.5 = 0.2590              
+Validation done!
+Epoch 3/12
+   2/9362 [..............................] - ETA: 75:02:47 - loss: 0.3708 - rpn_out_class_loss: 0.0109 - rpn_out_regress_loss: 0.0018 - dense_class_td_loss: 0.0686 - dense_regress_td_loss: 0.0322 - dense_class_td_acc: 0.9756 /usr/local/lib/python3.6/dist-packages/keras/callbacks.py:122: UserWarning: Method on_batch_end() is slow compared to the batch update (1.827439). Check your callbacks.
+  % delta_t_median)
+9362/9362 [==============================] - 2741s 293ms/step - loss: 0.3657 - rpn_out_class_loss: 0.0149 - rpn_out_regress_loss: 0.0030 - dense_class_td_loss: 0.0899 - dense_regress_td_loss: 0.0472 - dense_class_td_acc: 0.9644
+57067324bf39:77:105 [0] NCCL INFO Bootstrap : Using [0]lo:127.0.0.1<0> [1]eth0:172.17.0.2<0>
+57067324bf39:77:105 [0] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+57067324bf39:77:105 [0] NCCL INFO NET/IB : No device found.
+57067324bf39:77:105 [0] NCCL INFO NET/Socket : Using [0]lo:127.0.0.1<0> [1]eth0:172.17.0.2<0>
+57067324bf39:77:105 [0] NCCL INFO Using network Socket
+NCCL version 2.7.8+cuda11.1
+57067324bf39:77:105 [0] NCCL INFO Channel 00/32 :    0
+57067324bf39:77:105 [0] NCCL INFO Channel 01/32 :    0
+57067324bf39:77:105 [0] NCCL INFO Channel 02/32 :    0
+57067324bf39:77:105 [0] NCCL INFO Channel 03/32 :    0
+57067324bf39:77:105 [0] NCCL INFO Channel 04/32 :    0
+57067324bf39:77:105 [0] NCCL INFO Channel 05/32 :    0
+57067324bf39:77:105 [0] NCCL INFO Channel 06/32 :    0
+57067324bf39:77:105 [0] NCCL INFO Channel 07/32 :    0
+57067324bf39:77:105 [0] NCCL INFO Channel 08/32 :    0
+57067324bf39:77:105 [0] NCCL INFO Channel 09/32 :    0
+57067324bf39:77:105 [0] NCCL INFO Channel 10/32 :    0
+57067324bf39:77:105 [0] NCCL INFO Channel 11/32 :    0
+57067324bf39:77:105 [0] NCCL INFO Channel 12/32 :    0
+57067324bf39:77:105 [0] NCCL INFO Channel 13/32 :    0
+57067324bf39:77:105 [0] NCCL INFO Channel 14/32 :    0
+57067324bf39:77:105 [0] NCCL INFO Channel 15/32 :    0
+57067324bf39:77:105 [0] NCCL INFO Channel 16/32 :    0
+57067324bf39:77:105 [0] NCCL INFO Channel 17/32 :    0
+57067324bf39:77:105 [0] NCCL INFO Channel 18/32 :    0
+57067324bf39:77:105 [0] NCCL INFO Channel 19/32 :    0
+57067324bf39:77:105 [0] NCCL INFO Channel 20/32 :    0
+57067324bf39:77:105 [0] NCCL INFO Channel 21/32 :    0
+57067324bf39:77:105 [0] NCCL INFO Channel 22/32 :    0
+57067324bf39:77:105 [0] NCCL INFO Channel 23/32 :    0
+57067324bf39:77:105 [0] NCCL INFO Channel 24/32 :    0
+57067324bf39:77:105 [0] NCCL INFO Channel 25/32 :    0
+57067324bf39:77:105 [0] NCCL INFO Channel 26/32 :    0
+57067324bf39:77:105 [0] NCCL INFO Channel 27/32 :    0
+57067324bf39:77:105 [0] NCCL INFO Channel 28/32 :    0
+57067324bf39:77:105 [0] NCCL INFO Channel 29/32 :    0
+57067324bf39:77:105 [0] NCCL INFO Channel 30/32 :    0
+57067324bf39:77:105 [0] NCCL INFO Channel 31/32 :    0
+57067324bf39:77:105 [0] NCCL INFO Trees [0] -1/-1/-1->0->-1|-1->0->-1/-1/-1 [1] -1/-1/-1->0->-1|-1->0->-1/-1/-1 [2] -1/-1/-1->0->-1|-1->0->-1/-1/-1 [3] -1/-1/-1->0->-1|-1->0->-1/-1/-1 [4] -1/-1/-1->0->-1|-1->0->-1/-1/-1 [5] -1/-1/-1->0->-1|-1->0->-1/-1/-1 [6] -1/-1/-1->0->-1|-1->0->-1/-1/-1 [7] -1/-1/-1->0->-1|-1->0->-1/-1/-1 [8] -1/-1/-1->0->-1|-1->0->-1/-1/-1 [9] -1/-1/-1->0->-1|-1->0->-1/-1/-1 [10] -1/-1/-1->0->-1|-1->0->-1/-1/-1 [11] -1/-1/-1->0->-1|-1->0->-1/-1/-1 [12] -1/-1/-1->0->-1|-1->0->-1/-1/-1 [13] -1/-1/-1->0->-1|-1->0->-1/-1/-1 [14] -1/-1/-1->0->-1|-1->0->-1/-1/-1 [15] -1/-1/-1->0->-1|-1->0->-1/-1/-1 [16] -1/-1/-1->0->-1|-1->0->-1/-1/-1 [17] -1/-1/-1->0->-1|-1->0->-1/-1/-1 [18] -1/-1/-1->0->-1|-1->0->-1/-1/-1 [19] -1/-1/-1->0->-1|-1->0->-1/-1/-1 [20] -1/-1/-1->0->-1|-1->0->-1/-1/-1 [21] -1/-1/-1->0->-1|-1->0->-1/-1/-1 [22] -1/-1/-1->0->-1|-1->0->-1/-1/-1 [23] -1/-1/-1->0->-1|-1->0->-1/-1/-1 [24] -1/-1/-1->0->-1|-1->0->-1/-1/-1 [25] -1/-1/-1->0->-1|-1->0->-1/-1/-1 [26] -1/-1/-1->0->-1|-1->0->-1/
+57067324bf39:77:105 [0] NCCL INFO 32 coll channels, 32 p2p channels, 32 p2p channels per peer
+57067324bf39:77:105 [0] NCCL INFO comm 0x7fb8e4329f90 rank 0 nranks 1 cudaDev 0 busId 1000 - Init COMPLETE
+Doing validation at epoch 3(1-based index)...
+100%|███████████████████████████████████████| 6095/6095 [03:21<00:00, 30.28it/s]
+==========================================================================================
+Class               AP                  precision           recall              RPN_recall          
+------------------------------------------------------------------------------------------
+coleoptera          0.4984              0.5563              0.6220              0.9841              
+------------------------------------------------------------------------------------------
+diptera             0.5860              0.5522              0.6744              0.9824              
+------------------------------------------------------------------------------------------
+geometridae         0.7094              0.8036              0.7290              0.9956              
+------------------------------------------------------------------------------------------
+hemiptera           0.3585              0.6032              0.4307              0.9517              
+------------------------------------------------------------------------------------------
+hymenoptera         0.6095              0.3597              0.7872              0.9660              
+------------------------------------------------------------------------------------------
+noctuidae           0.7095              0.6045              0.8090              0.9970              
+------------------------------------------------------------------------------------------
+odonata             0.6671              0.5853              0.7640              0.9897              
+------------------------------------------------------------------------------------------
+orthoptera          0.5667              0.5480              0.6623              0.9725              
+------------------------------------------------------------------------------------------
+trichoptera         0.7560              0.6771              0.7977              0.9774              
+------------------------------------------------------------------------------------------
+mAP@0.5 = 0.6068              
+Validation done!
+Epoch 4/12
+9362/9362 [==============================] - 2693s 288ms/step - loss: 0.3102 - rpn_out_class_loss: 0.0145 - rpn_out_regress_loss: 0.0031 - dense_class_td_loss: 0.0913 - dense_regress_td_loss: 0.0475 - dense_class_td_acc: 0.9650
+Doing validation at epoch 4(1-based index)...
+100%|███████████████████████████████████████| 6095/6095 [03:20<00:00, 30.39it/s]
+==========================================================================================
+Class               AP                  precision           recall              RPN_recall          
+------------------------------------------------------------------------------------------
+coleoptera          0.4455              0.6553              0.5119              0.9854              
+------------------------------------------------------------------------------------------
+diptera             0.4410              0.7642              0.4749              0.9851              
+------------------------------------------------------------------------------------------
+geometridae         0.7154              0.6831              0.7555              0.9867              
+------------------------------------------------------------------------------------------
+hemiptera           0.4435              0.4371              0.5870              0.9581              
+------------------------------------------------------------------------------------------
+hymenoptera         0.5236              0.3336              0.7121              0.9730              
+------------------------------------------------------------------------------------------
+noctuidae           0.7613              0.5315              0.8617              0.9925              
+------------------------------------------------------------------------------------------
+odonata             0.7408              0.5887              0.8024              0.9882              
+------------------------------------------------------------------------------------------
+orthoptera          0.6079              0.3137              0.7971              0.9812              
+------------------------------------------------------------------------------------------
+trichoptera         0.7761              0.4768              0.8416              0.9788              
+------------------------------------------------------------------------------------------
+mAP@0.5 = 0.6061              
+Validation done!
+Epoch 5/12
+9362/9362 [==============================] - 2692s 288ms/step - loss: 0.3005 - rpn_out_class_loss: 0.0149 - rpn_out_regress_loss: 0.0035 - dense_class_td_loss: 0.1013 - dense_regress_td_loss: 0.0518 - dense_class_td_acc: 0.9621
+Doing validation at epoch 5(1-based index)...
+100%|███████████████████████████████████████| 6095/6095 [03:20<00:00, 30.42it/s]
+==========================================================================================
+Class               AP                  precision           recall              RPN_recall          
+------------------------------------------------------------------------------------------
+coleoptera          0.5603              0.3917              0.7268              0.9668              
+------------------------------------------------------------------------------------------
+diptera             0.4853              0.7188              0.5305              0.9661              
+------------------------------------------------------------------------------------------
+geometridae         0.7639              0.6976              0.7982              0.9823              
+------------------------------------------------------------------------------------------
+hemiptera           0.3888              0.5006              0.5489              0.9441              
+------------------------------------------------------------------------------------------
+hymenoptera         0.5448              0.2839              0.7745              0.9362              
+------------------------------------------------------------------------------------------
+noctuidae           0.6031              0.6686              0.6917              0.9955              
+------------------------------------------------------------------------------------------
+odonata             0.7581              0.4788              0.8348              0.9823              
+------------------------------------------------------------------------------------------
+orthoptera          0.4047              0.7623              0.4507              0.9667              
+------------------------------------------------------------------------------------------
+trichoptera         0.6807              0.7336              0.7284              0.9788              
+------------------------------------------------------------------------------------------
+mAP@0.5 = 0.5766              
+Validation done!
+Epoch 6/12
+9362/9362 [==============================] - 2699s 288ms/step - loss: 0.2917 - rpn_out_class_loss: 0.0148 - rpn_out_regress_loss: 0.0036 - dense_class_td_loss: 0.1028 - dense_regress_td_loss: 0.0522 - dense_class_td_acc: 0.9610
+Doing validation at epoch 6(1-based index)...
+100%|███████████████████████████████████████| 6095/6095 [03:20<00:00, 30.34it/s]
+==========================================================================================
+Class               AP                  precision           recall              RPN_recall          
+------------------------------------------------------------------------------------------
+coleoptera          0.4895              0.5099              0.6154              0.9828              
+------------------------------------------------------------------------------------------
+diptera             0.6211              0.3997              0.7653              0.9824              
+------------------------------------------------------------------------------------------
+geometridae         0.6766              0.7173              0.7099              0.9823              
+------------------------------------------------------------------------------------------
+hemiptera           0.4288              0.4747              0.5362              0.9479              
+------------------------------------------------------------------------------------------
+hymenoptera         0.4438              0.5860              0.5362              0.9560              
+------------------------------------------------------------------------------------------
+noctuidae           0.4706              0.7500              0.5368              0.9970              
+------------------------------------------------------------------------------------------
+odonata             0.6271              0.2210              0.7994              0.9853              
+------------------------------------------------------------------------------------------
+orthoptera          0.4240              0.4208              0.5928              0.9580              
+------------------------------------------------------------------------------------------
+trichoptera         0.6202              0.7671              0.6521              0.9760              
+------------------------------------------------------------------------------------------
+mAP@0.5 = 0.5335              
+Validation done!
+Epoch 7/12
+9362/9362 [==============================] - 2700s 288ms/step - loss: 0.2733 - rpn_out_class_loss: 0.0143 - rpn_out_regress_loss: 0.0034 - dense_class_td_loss: 0.0965 - dense_regress_td_loss: 0.0487 - dense_class_td_acc: 0.9638
+Doing validation at epoch 7(1-based index)...
+100%|███████████████████████████████████████| 6095/6095 [03:20<00:00, 30.33it/s]
+==========================================================================================
+Class               AP                  precision           recall              RPN_recall          
+------------------------------------------------------------------------------------------
+coleoptera          0.5343              0.4611              0.6751              0.9894              
+------------------------------------------------------------------------------------------
+diptera             0.5991              0.4552              0.7232              0.9864              
+------------------------------------------------------------------------------------------
+geometridae         0.7729              0.5768              0.8292              0.9926              
+------------------------------------------------------------------------------------------
+hemiptera           0.4962              0.2704              0.7116              0.9593              
+------------------------------------------------------------------------------------------
+hymenoptera         0.2301              0.8901              0.2411              0.9730              
+------------------------------------------------------------------------------------------
+noctuidae           0.5426              0.7315              0.6105              0.9985              
+------------------------------------------------------------------------------------------
+odonata             0.7509              0.3247              0.8555              0.9926              
+------------------------------------------------------------------------------------------
+orthoptera          0.5066              0.7127              0.5464              0.9855              
+------------------------------------------------------------------------------------------
+trichoptera         0.4783              0.9770              0.4809              0.9745              
+------------------------------------------------------------------------------------------
+mAP@0.5 = 0.5457              
+Validation done!
+Epoch 8/12
+9362/9362 [==============================] - 2695s 288ms/step - loss: 0.3607 - rpn_out_class_loss: 0.0149 - rpn_out_regress_loss: 0.0033 - dense_class_td_loss: 0.0956 - dense_regress_td_loss: 0.0492 - dense_class_td_acc: 0.9647
+Doing validation at epoch 8(1-based index)...
+100%|███████████████████████████████████████| 6095/6095 [03:21<00:00, 30.30it/s]
+==========================================================================================
+Class               AP                  precision           recall              RPN_recall          
+------------------------------------------------------------------------------------------
+coleoptera          0.4516              0.6986              0.5225              0.9907              
+------------------------------------------------------------------------------------------
+diptera             0.5261              0.8438              0.5495              0.9756              
+------------------------------------------------------------------------------------------
+geometridae         0.7466              0.7049              0.7776              0.9853              
+------------------------------------------------------------------------------------------
+hemiptera           0.5623              0.3690              0.7103              0.9619              
+------------------------------------------------------------------------------------------
+hymenoptera         0.5219              0.5120              0.6340              0.9589              
+------------------------------------------------------------------------------------------
+noctuidae           0.7263              0.6213              0.7970              0.9940              
+------------------------------------------------------------------------------------------
+odonata             0.7472              0.6429              0.7994              0.9897              
+------------------------------------------------------------------------------------------
+orthoptera          0.4739              0.3151              0.7029              0.9797              
+------------------------------------------------------------------------------------------
+trichoptera         0.7824              0.5769              0.8331              0.9760              
+------------------------------------------------------------------------------------------
+mAP@0.5 = 0.6154              
+Validation done!
+Epoch 9/12
+9362/9362 [==============================] - 2711s 290ms/step - loss: 0.3354 - rpn_out_class_loss: 0.0139 - rpn_out_regress_loss: 0.0030 - dense_class_td_loss: 0.0859 - dense_regress_td_loss: 0.0447 - dense_class_td_acc: 0.9668
+Doing validation at epoch 9(1-based index)...
+100%|███████████████████████████████████████| 6095/6095 [03:22<00:00, 30.14it/s]
+==========================================================================================
+Class               AP                  precision           recall              RPN_recall          
+------------------------------------------------------------------------------------------
+coleoptera          0.5369              0.5876              0.6406              0.9867              
+------------------------------------------------------------------------------------------
+diptera             0.6540              0.4691              0.7531              0.9810              
+------------------------------------------------------------------------------------------
+geometridae         0.7415              0.6119              0.7850              0.9867              
+------------------------------------------------------------------------------------------
+hemiptera           0.3625              0.6565              0.4104              0.9581              
+------------------------------------------------------------------------------------------
+hymenoptera         0.5147              0.6219              0.6043              0.9730              
+------------------------------------------------------------------------------------------
+noctuidae           0.6081              0.7429              0.6692              0.9910              
+------------------------------------------------------------------------------------------
+odonata             0.6964              0.4629              0.7920              0.9912              
+------------------------------------------------------------------------------------------
+orthoptera          0.5032              0.4755              0.6333              0.9797              
+------------------------------------------------------------------------------------------
+trichoptera         0.6253              0.8247              0.6521              0.9731              
+------------------------------------------------------------------------------------------
+mAP@0.5 = 0.5825              
+Validation done!
+Epoch 10/12
+9362/9362 [==============================] - 2704s 289ms/step - loss: 0.2765 - rpn_out_class_loss: 0.0127 - rpn_out_regress_loss: 0.0026 - dense_class_td_loss: 0.0792 - dense_regress_td_loss: 0.0419 - dense_class_td_acc: 0.9685
+Doing validation at epoch 10(1-based index)...
+100%|███████████████████████████████████████| 6095/6095 [03:22<00:00, 30.17it/s]
+==========================================================================================
+Class               AP                  precision           recall              RPN_recall          
+------------------------------------------------------------------------------------------
+coleoptera          0.6528              0.5589              0.7427              0.9920              
+------------------------------------------------------------------------------------------
+diptera             0.7056              0.6971              0.7463              0.9851              
+------------------------------------------------------------------------------------------
+geometridae         0.8596              0.6638              0.8984              0.9941              
+------------------------------------------------------------------------------------------
+hemiptera           0.6226              0.4593              0.7319              0.9606              
+------------------------------------------------------------------------------------------
+hymenoptera         0.6332              0.5520              0.7376              0.9773              
+------------------------------------------------------------------------------------------
+noctuidae           0.7982              0.7675              0.8391              1.0000              
+------------------------------------------------------------------------------------------
+odonata             0.8377              0.4906              0.8820              0.9912              
+------------------------------------------------------------------------------------------
+orthoptera          0.7038              0.3112              0.8362              0.9913              
+------------------------------------------------------------------------------------------
+trichoptera         0.8450              0.7665              0.8685              0.9802              
+------------------------------------------------------------------------------------------
+mAP@0.5 = 0.7398              
+Validation done!
+Epoch 11/12
+   2/9362 [..............................] - ETA: 74:39:13 - loss: 0.2649 - rpn_out_class_loss: 0.0058 - rpn_out_regress_loss: 0.0013 - dense_class_td_loss: 0.0853 - dense_regress_td_loss: 0.0403 - dense_class_td_acc: 0.9692 /usr/local/lib/python3.6/dist-packages/keras/callbacks.py:122: UserWarning: Method on_batch_end() is slow compared to the batch update (1.836162). Check your callbacks.
+  % delta_t_median)
+9362/9362 [==============================] - 2772s 296ms/step - loss: 0.2390 - rpn_out_class_loss: 0.0099 - rpn_out_regress_loss: 0.0019 - dense_class_td_loss: 0.0618 - dense_regress_td_loss: 0.0361 - dense_class_td_acc: 0.9726
+Doing validation at epoch 11(1-based index)...
+100%|███████████████████████████████████████| 6095/6095 [03:25<00:00, 29.60it/s]
+==========================================================================================
+Class               AP                  precision           recall              RPN_recall          
+------------------------------------------------------------------------------------------
+coleoptera          0.7117              0.5655              0.8011              0.9947              
+------------------------------------------------------------------------------------------
+diptera             0.7453              0.6897              0.7843              0.9851              
+------------------------------------------------------------------------------------------
+geometridae         0.8603              0.7237              0.8910              0.9912              
+------------------------------------------------------------------------------------------
+hemiptera           0.6552              0.5533              0.7382              0.9695              
+------------------------------------------------------------------------------------------
+hymenoptera         0.6959              0.5440              0.8071              0.9773              
+------------------------------------------------------------------------------------------
+noctuidae           0.8527              0.6801              0.8887              0.9985              
+------------------------------------------------------------------------------------------
+odonata             0.8655              0.5644              0.8982              0.9882              
+------------------------------------------------------------------------------------------
+orthoptera          0.7247              0.4795              0.8130              0.9899              
+------------------------------------------------------------------------------------------
+trichoptera         0.8628              0.7527              0.8826              0.9802              
+------------------------------------------------------------------------------------------
+mAP@0.5 = 0.7749              
+Validation done!
+Epoch 12/12
+9362/9362 [==============================] - 2756s 294ms/step - loss: 0.2304 - rpn_out_class_loss: 0.0094 - rpn_out_regress_loss: 0.0017 - dense_class_td_loss: 0.0576 - dense_regress_td_loss: 0.0347 - dense_class_td_acc: 0.9745
+Doing validation at epoch 12(1-based index)...
+100%|███████████████████████████████████████| 6095/6095 [03:23<00:00, 29.88it/s]
+==========================================================================================
+Class               AP                  precision           recall              RPN_recall          
+------------------------------------------------------------------------------------------
+coleoptera          0.7103              0.5833              0.7944              0.9920              
+------------------------------------------------------------------------------------------
+diptera             0.7464              0.7004              0.7802              0.9851              
+------------------------------------------------------------------------------------------
+geometridae         0.8641              0.7243              0.8940              0.9926              
+------------------------------------------------------------------------------------------
+hemiptera           0.6701              0.5482              0.7586              0.9657              
+------------------------------------------------------------------------------------------
+hymenoptera         0.7041              0.5084              0.8142              0.9773              
+------------------------------------------------------------------------------------------
+noctuidae           0.8683              0.6868              0.9068              0.9985              
+------------------------------------------------------------------------------------------
+odonata             0.8621              0.6348              0.8923              0.9912              
+------------------------------------------------------------------------------------------
+orthoptera          0.7519              0.5233              0.8290              0.9884              
+------------------------------------------------------------------------------------------
+trichoptera         0.8730              0.7671              0.8897              0.9802              
+------------------------------------------------------------------------------------------
+mAP@0.5 = 0.7834              
+Validation done!
