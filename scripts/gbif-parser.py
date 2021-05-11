@@ -66,7 +66,7 @@ def get_url(element,counter,name,sizex,sizey):
 if __name__=='__main__':  
     print("First argument : name of the species")
     print("Second argument : txt file containing links in gbif multimedia format")
-    print("Third argument : number of iamges to download")
+    print("Third argument : number of images to download")
     print("Fourth argument : size width for the image to be resized")
     print("Fifth argument : size height for the image to be resized")
     print("INFO : Images will be downloaded directly into inference folder of the dataset, since nothing is annotated")
@@ -112,7 +112,7 @@ if __name__=='__main__':
     listsizey = [sizey for i in range(0,len(targets))]
     #pool = ThreadPool(100)
     inputs = zip(targets, counter_list, names,listsizex,listsizey)
-    with mpp.Pool(12) as pool:
+    with mpp.Pool(2) as pool:
         results = list(tqdm.tqdm(pool.istarmap(get_url,inputs),total=len(targets)))
 
     print(str(len(targets)),"files successfully saved in path ","data/kitti/"+name+"/inference/images/*")
