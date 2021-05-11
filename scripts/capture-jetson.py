@@ -26,10 +26,10 @@ from os.path import isfile, join
 
 
 def gstreamer_pipeline(
-    capture_width=1280,
-    capture_height=720,
-    display_width=1280,
-    display_height=720,
+    capture_width=1920,
+    capture_height=1080,
+    display_width=1920,
+    display_height=1080,
     framerate=60,
     flip_method=0,
 ):
@@ -54,18 +54,18 @@ def gstreamer_pipeline(
 
 # construct the argument parser and parse the arguments
 ap = argparse.ArgumentParser()
-ap.add_argument("-a", "--min-area", type=int, default=500, help="minimum area size")
+ap.add_argument("-a", "--min-area", type=int, default=50, help="minimum area size")
 args = vars(ap.parse_args())
 if not path.exists("captures") : os.mkdir("captures")
 
 def show_camera():
     # To flip the image, modify the flip_method parameter (0 and 2 are the most common)
     print(gstreamer_pipeline(flip_method=0))
-    #cap = cv2.VideoCapture(gstreamer_pipeline(flip_method=0), cv2.CAP_GSTREAMER)
-    cap = VideoStream(src=0).start()
+    cap = cv2.VideoCapture(gstreamer_pipeline(flip_method=0), cv2.CAP_GSTREAMER)
+    #cap = VideoStream(src=0).start()
     time.sleep(2.0)
-    #if cap.isOpened():
-    if True:
+    if cap.isOpened():
+    #if True:
         #window_handle = cv2.namedWindow("CSI Camera", cv2.WINDOW_AUTOSIZE)
         # Window
         firstFrame = None
@@ -75,8 +75,8 @@ def show_camera():
         text="Nothing"
         #while cv2.getWindowProperty("", 0) >= 0:
         while True:
-            full_frame = cap.read()
-            #_, full_frame = cap.read()
+            #ret_val, frame = cap.read()
+            _, full_frame = cap.read()
             if countdown>0:
                 time.sleep(0.2)
                 countdown-=1
@@ -87,9 +87,7 @@ def show_camera():
 
             if firstFrame is None or reset==0:
                 firstFrame=gray_frame
-                print("reset")
                 reset=600
-                print("reset !")
                 continue
             frameDelta = cv2.absdiff(firstFrame, gray_frame)
             thresh = cv2.threshold(frameDelta, 25, 255, cv2.THRESH_BINARY)[1]
@@ -100,7 +98,7 @@ def show_camera():
             reset-=1
             if reset % 30 ==0 and len(cnts)>=1:
                 print("image taken !!")
-                cv2.imwrite("captures/image"+str(counter_image)+".jpg",full_frame)
+                cv2.imwrite("/home/simon-gilles/Softwares/captures/image"+str(counter_image)+".jpg",full_frame)
                 counter_image+=1
             for c in cnts:
                 # if the contour is too small, ignore it
@@ -111,31 +109,30 @@ def show_camera():
                 (x, y, w, h) = cv2.boundingRect(c)
                 cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
                 text = "Detected"
-            
             # draw the text and timestamp on the frame
-            cv2.putText(frame, "Room Status: {}".format(text), (10, 20),
-                cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 2)
-            cv2.putText(frame, datetime.datetime.now().strftime("%A %d %B %Y %I:%M:%S%p"),
-                (10, frame.shape[0] - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.35, (0, 0, 255), 1)
+            #cv2.putText(frame, "Room Status: {}".format(text), (10, 20),
+                #cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 2)
+            #cv2.putText(frame, datetime.datetime.now().strftime("%A %d %B %Y %I:%M:%S%p"),
+                #(10, frame.shape[0] - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.35, (0, 0, 255), 1)
             # show the frame and record if the user presses a key
-            cv2.imshow("Live Feed", frame)
+            #cv2.imshow("Live Feed", frame)
             #cv2.imshow("Thresh", thresh)
             #cv2.imshow("Frame Delta", frameDelta)
-            key = cv2.waitKey(1) & 0xFF
+            #key = cv2.waitKey(1) & 0xFF
             # if the `q` key is pressed, break from the lop
-            if key == ord("q"):
-                break
+            #if key == ord("q"):
+                #break
             # cleanup the camera and close any open windows
             #cap.stop() if args.get("video", None) is None else cap.release()
             #cv2.destroyAllWindows()
             #cv2.imshow("CSI Camera", frame)
             # This also acts as
-            keyCode = cv2.waitKey(30) & 0xFF
+            #keyCode = cv2.waitKey(30) & 0xFF
             # Stop the program on the ESC key
-            if keyCode == 27:
-                break
+            #if keyCode == 27:
+                #break
         cap.release()
-        cv2.destroyAllWindows()
+        #cv2.destroyAllWindows()
     else:
         print("Unable to open camera")
 
