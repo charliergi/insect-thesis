@@ -88,10 +88,12 @@ images = []
 label_paths = []
 files = [f for f in os.listdir(images_folder) if os.path.isfile(os.path.join(images_folder, f))]
 random.shuffle(files)
+images_done = 0
 for f in files:
 	in_img = os.path.join(images_folder,f)
 	img = cv2.imread(in_img)
-	out_img = os.path.join(out_images, f)
+	out_name = "mosaic-" + str(images_done)
+	out_img = os.path.join(out_images, out_name)
 	label_filename = f.replace(".jpg",".txt")
 	label_path = os.path.join(labels_folder,label_filename)
 	out_lbl = os.path.join(out_labels, label_filename)
@@ -108,6 +110,7 @@ for f in files:
 			with open(out_lbl, 'w') as filehandle:
 				for lbl in lbls:
 					filehandle.write('%s\n' % lbl)
+			images_done += 1
 			images_to_merge = random.randint(1,6)
 			images = []
 			label_paths = []
