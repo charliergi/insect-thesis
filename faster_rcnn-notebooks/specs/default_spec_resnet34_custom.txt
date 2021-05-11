@@ -122,9 +122,9 @@ training_config {
 enable_augmentation: True
 enable_qat: False
 batch_size_per_gpu: 4 # best 4
-num_epochs: 12
+num_epochs: 20
 pretrained_weights: "/workspace/tlt-experiments/insect-thesis/data/faster_rcnn/resnet_34.hdf5"
-resume_from_model: "/workspace/tlt-experiments/insect-thesis/data/kitti/final/faster_rcnn/frcnn_kitti_resnet34.epoch10.tlt"
+resume_from_model: "/workspace/tlt-experiments/insect-thesis/data/kitti/final/faster_rcnn/frcnn_kitti_resnet34.epoch19.tlt"
 output_model: "/workspace/tlt-experiments/insect-thesis/data/kitti/final/faster_rcnn/frcnn_kitti_resnet34.tlt"
 rpn_min_overlap: 0.3
 rpn_max_overlap: 0.7
@@ -173,8 +173,15 @@ soft_start {
 base_lr: 0.02
 start_lr: 0.002
 soft_start: 0.1
-annealing_points: 0.8
-annealing_points: 0.9
+annealing_points: 0.55
+annealing_points: 0.60
+annealing_points: 0.65
+annealing_points: 0.70
+annealing_points: 0.75
+annealing_points: 0.80
+annealing_points: 0.85
+annealing_points: 0.90
+annealing_points: 0.95
 annealing_divider: 10.0
 }
 }
@@ -186,29 +193,33 @@ lambda_cls_class: 1.0
 }
 inference_config {
 images_dir: '/workspace/tlt-experiments/insect-thesis/data/kitti/final/inference/images'
-model: '/workspace/tlt-experiments/insect-thesis/data/kitti/final/faster_rcnn/frcnn_kitti_resnet34.epoch12.tlt'
+model: '/workspace/tlt-experiments/insect-thesis/data/kitti/final/faster_rcnn/frcnn_kitti_resnet34.epoch20.tlt'
 batch_size: 1
 detection_image_output_dir: '/workspace/tlt-experiments/insect-thesis/data/kitti/final/faster_rcnn/inference_images'
 labels_dump_dir: '/workspace/tlt-experiments/insect-thesis/data/kitti/final/faster_rcnn/inference_labels'
 rpn_pre_nms_top_N: 6000
 rpn_nms_max_boxes: 300
-rpn_nms_overlap_threshold: 0.7
-object_confidence_thres: 0.4
-bbox_visualize_threshold: 0.4
-classifier_nms_max_boxes: 40
-classifier_nms_overlap_threshold: 0.5
-}
-evaluation_config {
-model: '/workspace/tlt-experiments/insect-thesis/data/kitti/final/faster_rcnn/frcnn_kitti_resnet34.epoch12.tlt'
-batch_size: 1
-validation_period_during_training: 1
-labels_dump_dir: '/workspace/tlt-experiments/insect-thesis/data/kitti/final/faster_rcnn/inference_labels'
-rpn_pre_nms_top_N: 6000
-rpn_nms_max_boxes: 300
-rpn_nms_overlap_threshold: 0.7
+rpn_nms_overlap_threshold: 0.5
+object_confidence_thres: 0.5
+bbox_visualize_threshold: 0.5
 classifier_nms_max_boxes: 40
 classifier_nms_overlap_threshold: 0.4
-object_confidence_thres: 0.4
+}
+evaluation_config {
+model: '/workspace/tlt-experiments/insect-thesis/data/kitti/final/faster_rcnn/frcnn_kitti_resnet34.epoch20.tlt'
+batch_size: 1
+validation_period_during_training: 1
+rpn_pre_nms_top_N: 6000
+rpn_nms_max_boxes: 300
+rpn_nms_overlap_threshold: 0.5
+classifier_nms_max_boxes: 30
+classifier_nms_overlap_threshold: 0.4
+object_confidence_thres: 0.5
 use_voc07_11point_metric:False
+#trt_evaluation {
+#trt_engine: '/workspace/tlt-experiments/data/faster_rcnn/trt.int8.engine'
+#trt_data_type: 'int8'
+#max_workspace_size_MB: 2000
+#}
 gt_matching_iou_threshold: 0.5
 }
