@@ -54,7 +54,7 @@ def gstreamer_pipeline(
 
 # construct the argument parser and parse the arguments
 ap = argparse.ArgumentParser()
-ap.add_argument("-a", "--min-area", type=int, default=50, help="minimum area size")
+ap.add_argument("-a", "--min-area", type=int, default=200, help="minimum area size")
 args = vars(ap.parse_args())
 if not path.exists("captures") : os.mkdir("captures")
 
@@ -68,35 +68,33 @@ def show_camera():
     #if True:
         #window_handle = cv2.namedWindow("CSI Camera", cv2.WINDOW_AUTOSIZE)
         # Window
-        firstFrame = None
-        countdown=60
-        reset=600
+        countdown=True
         counter_image=0
+        
+        previous_image=None
         text="Nothing"
         #while cv2.getWindowProperty("", 0) >= 0:
         while True:
             #ret_val, frame = cap.read()
             _, full_frame = cap.read()
-            if countdown>0:
-                time.sleep(0.2)
-                countdown-=1
-                continue
+            if countdown:
+                time.sleep(12)
+                countdown=False
             frame = imutils.resize(full_frame,width=512)
             gray_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
             gray_frame = cv2.GaussianBlur(gray_frame, (21, 21), 0)
 
-            if firstFrame is None or reset==0:
-                firstFrame=gray_frame
-                reset=600
-                continue
-            frameDelta = cv2.absdiff(firstFrame, gray_frame)
+            # first image
+            if previous_image is None :
+                previous_image=gray_frame
+                
+            frameDelta = cv2.absdiff(previous_image, gray_frame)
             thresh = cv2.threshold(frameDelta, 25, 255, cv2.THRESH_BINARY)[1]
 
             thresh = cv2.dilate(thresh, None, iterations=2)
             cnts = cv2.findContours(thresh.copy(), cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
             cnts = imutils.grab_contours(cnts)
-            reset-=1
-            if reset % 30 ==0 and len(cnts)>=1:
+            if len(cnts)>=1:
                 print("image taken !!")
                 cv2.imwrite("/home/simon-gilles/Softwares/captures/image"+str(counter_image)+".jpg",full_frame)
                 counter_image+=1
@@ -131,6 +129,7 @@ def show_camera():
             # Stop the program on the ESC key
             #if keyCode == 27:
                 #break
+            previous_image=gray_frame
         cap.release()
         #cv2.destroyAllWindows()
     else:
