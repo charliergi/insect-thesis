@@ -33,4 +33,6 @@ for im in listdir(images):
 				print(line)
 			else:
 				draw.rectangle(((float(xmin), float(ymin)), (float(xmax), float(ymax))), outline="green")
+	if ext == "jpg":
+		ext = "jpeg"
 	image.save(os.path.join(out_folder,im), ext)
