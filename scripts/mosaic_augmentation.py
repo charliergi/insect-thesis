@@ -5,6 +5,7 @@ import os
 import argparse
 import math
 from shutil import copy2
+from tqdm import tqdm
 
 random.seed(42)
 
@@ -90,7 +91,7 @@ label_paths = []
 files = [f for f in os.listdir(images_folder) if os.path.isfile(os.path.join(images_folder, f))]
 random.shuffle(files)
 images_done = 0
-for f in files:
+for f in tqdm(files):
 	in_img = os.path.join(images_folder,f)
 	img = cv2.imread(in_img)
 	out_name = "mosaic-" + str(images_done) +".jpg"
