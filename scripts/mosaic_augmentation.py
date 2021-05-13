@@ -8,6 +8,8 @@ from shutil import copy2
 
 random.seed(42)
 
+SIZE = 512
+
 parser = argparse.ArgumentParser()
 parser.add_argument("data_folder", help="folder containing both the image and labels folders")
 parser.add_argument("out_folder", help="output folder")
@@ -36,30 +38,29 @@ def count_lines(filename):
 			pass
 	return i
 
+def overlap(out_labels, newX, newY):
+	for lbl in out_labels:
+		label,_,_,_,minx,miny,maxx,maxy,_,_,_,_,_,_,_=lbl.split()
+		minx,miny,maxx,maxy = float(minx), float(miny), float(maxx), float(maxy)
+		if (newX<minx<newX+SIZE or newX<maxx<newX+SIZE) and (newY<miny<newY+SIZE or newY<maxy<newY+SIZE):
+			return True
+	return False
+
 def mosaic(images, labels_path):
 	columns = math.ceil(math.sqrt(len(images)))
+	xmax = SIZE*4
+	ymax = SIZE*4
 	X = np.empty(len(images), dtype=int)
 	Y = np.empty(len(images), dtype=int)
 	out_labels = []
 	for num, img in enumerate(images):
-		col = num%columns
-		row = num/columns
-		if col == 0:
-			if num == 0:
-				newX = random.randint(0,100)
-				newY = random.randint(0,100) 
-			else:
-				newX = X[num-columns] + random.randint(-100,100)
-				newY = Y[num-columns] + random.randint(412,612) 
-		else:
-			newX = X[num-1] + random.randint(412,612)
-			newY = Y[num-1] + random.randint(-100,100)
-		newX = max(412*col, newX)
-		newX = min(612*col, newX)
+		conflict = True
+		while conflict:
+			newX = random.randint(0,xmax)
+			newY = random.randint(0,ymax) 
+			conflict = overlap(out_labels, newX, newY)
 		X[num] = newX
-		newY = max(412*row, newY)
-		newY = min(612*row, newY)
-		Y[num] = newY 
+		Y[num] = newY
 		with open(label_paths[num], 'r') as f:
 			for i, lbl in enumerate(f):
 				label,_,_,_,minx,miny,maxx,maxy,_,_,_,_,_,_,_=lbl.split()
@@ -70,20 +71,20 @@ def mosaic(images, labels_path):
 				out_line = label+" 0.0 0 0 "+minx+" "+miny+" "+maxx+" "+maxy+" 0 0 0 0 0 0 0"
 				out_labels.append(out_line)
 
-	size_x = math.ceil(X.max()) + 512
-	size_y = math.ceil(Y.max()) + 512
+	size_x = math.ceil(X.max()) + SIZE
+	size_y = math.ceil(Y.max()) + SIZE
 	max_size = max(size_x, size_y)
 	res = cv2.imread(background_path)
 	res = res[0:max_size,0:max_size]
 	for num, img in enumerate(images):
 		startX = X[num]
-		endX = startX+512
+		endX = startX+SIZE
 		startY = Y[num]
-		endY = startY+512
+		endY = startY+SIZE
 		res[startY:endY,startX:endX] = img
 	return res, out_labels
 
-images_to_merge = random.randint(1,9)
+images_to_merge = random.randint(1,16)
 images = []
 label_paths = []
 files = [f for f in os.listdir(images_folder) if os.path.isfile(os.path.join(images_folder, f))]
@@ -92,7 +93,7 @@ images_done = 0
 for f in files:
 	in_img = os.path.join(images_folder,f)
 	img = cv2.imread(in_img)
-	out_name = "mosaic-" + str(images_done)
+	out_name = "mosaic-" + str(images_done) +".jpg"
 	out_img = os.path.join(out_images, out_name)
 	label_filename = f.replace(".jpg",".txt")
 	label_path = os.path.join(labels_folder,label_filename)
@@ -106,18 +107,19 @@ for f in files:
 		label_paths.append(label_path)
 		if len(images) == images_to_merge:
 			img, lbls= mosaic(images, label_paths)
+			img = cv2.resize(img,(SIZE, SIZE))
 			cv2.imwrite(out_img, img)
 			with open(out_lbl, 'w') as filehandle:
 				for lbl in lbls:
 					filehandle.write('%s\n' % lbl)
 			images_done += 1
-			images_to_merge = random.randint(1,6)
+			images_to_merge = random.randint(1,16)
 			images = []
 			label_paths = []
-			#TODO: labels
 if images:
 	img, lbls = mosaic(images, label_paths)
-	out_img = os.path.join(out_images, f)
+	out_name = "mosaic-" + str(images_done) +".jpg"
+	out_img = os.path.join(out_images, out_name)
 	cv2.imwrite(out_img, img)
 	with open(out_lbl, 'w') as filehandle:
 		for lbl in lbls:
