@@ -13,8 +13,8 @@ args = parser.parse_args()
 
 cwd = os.getcwd()
 train_folder = os.path.join(cwd, args.train_folder)
-images_folder = os.path.join(train_folder, "images")
-labels_folder = os.path.join(train_folder, "labels")
+images_folder = os.path.join(train_folder, "inference_images")
+labels_folder = os.path.join(train_folder, "inference_labels")
 out_folder = os.path.join(cwd, args.out_folder)
 if not os.path.exists(out_folder):
     os.makedirs(out_folder)
@@ -48,7 +48,7 @@ for filename in tqdm(files):
 			width = (float(xmax)-float(xmin))/w
 			height = (float(ymax)-float(ymin))/h
 			if len(elements) > 15:
-				out_line = str(classes.index(label))+" "+confidence+" "+str(x)+" "+str(y)+" "+str(width)+" "+str(height)
+				out_line = str(classes.index(label))+" "+prediction+" "+str(x)+" "+str(y)+" "+str(width)+" "+str(height)
 			else:
 				out_line = str(classes.index(label))+" "+str(x)+" "+str(y)+" "+str(width)+" "+str(height)
 			out_file = os.path.join(out_folder, filename)
