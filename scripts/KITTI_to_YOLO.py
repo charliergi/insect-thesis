@@ -5,6 +5,8 @@ import random
 from tqdm import tqdm
 
 parser = argparse.ArgumentParser( description='Converts KITTI file to the YOLO format.')
+parser.add_argument('inference_mode', metavar='inference_mode', type=str, 
+	help=" 'inference' if inference, 'validation' otherwise")
 parser.add_argument('train_folder', metavar='train_folder', type=str,
 	help='folder containing images and labels folders')
 parser.add_argument("out_folder", help="output folder")
@@ -13,8 +15,13 @@ args = parser.parse_args()
 
 cwd = os.getcwd()
 train_folder = os.path.join(cwd, args.train_folder)
-images_folder = os.path.join(train_folder, "inference_images")
-labels_folder = os.path.join(train_folder, "inference_labels")
+
+if args.inference_mode=="inference":
+	images_folder = os.path.join(train_folder, "inference_images")
+	labels_folder = os.path.join(train_folder, "inference_labels")
+else:
+	images_folder = os.path.join(train_folder, "images")
+	labels_folder = os.path.join(train_folder, "labels")
 out_folder = os.path.join(cwd, args.out_folder)
 if not os.path.exists(out_folder):
     os.makedirs(out_folder)

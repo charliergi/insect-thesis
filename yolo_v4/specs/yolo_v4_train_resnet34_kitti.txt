@@ -5,7 +5,7 @@ yolov4_config {
   small_anchor_shape: "[(56.00, 66.00),(131.00, 147.00),(223.00, 203.00)]"
   box_matching_iou: 0.25
   arch: "resnet"
-  nlayers: 18
+  nlayers: 34
   arch_conv_blocks: 2
   loss_loc_weight: 0.8
   loss_neg_obj_weights: 100.0
@@ -42,8 +42,8 @@ training_config {
       amsgrad: false
     }
   }
-  pretrain_model_path: "/workspace/tlt-experiments/insect-thesis/data/faster_rcnn/resnet_18.hdf5"
-  #resume_model_path: "/workspace/tlt-experiments/insect-thesis/experiment_dir_unpruned/weights/yolov4_resnet18_epoch_010.tlt"
+  pretrain_model_path: "/workspace/tlt-experiments/insect-thesis/data/faster_rcnn/resnet_34.hdf5"
+  #resume_model_path: "/workspace/tlt-experiments/insect-thesis/experiment_dir_unpruned/weights/yolov4_resnet34_epoch_010.tlt"
   
 }
 eval_config {
