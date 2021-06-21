@@ -1,6 +1,6 @@
 # insect-thesis
 
-Welcome in the insect wildlife monitoring github repository of Simon Hick and Gilles Charlier. This repo contains all our script used during our master thesis in computer science in UCLouvain (2020-2021).
+Welcome in the insect wildlife monitoring github repository of Simon Hick and Gilles Charlier. This repo contains all our scripts used during our master thesis in computer science in UCLouvain (2020-2021).
 This repo contains multiple folders. Below we will explain briefly each one of them. You will find Readme.md files in each of these folders where you will find additional informations about dependencies and how to use them. 
 
 ## Installation
@@ -25,9 +25,17 @@ This folder is a fork of SaiPrajwal95's repository. This folder is used to annot
 Mainly used as offline augmentation for testing purpose, this repository contains notebooks and specification files used to rotate, zoom, change colors and sharpness of our images. These scripts are not used for the moment.
 
 ## data
-This folder contains all the datasets used in the training process of recognition algorithm. 
+This folder contains the results of our models. Locally, it also contains all the datasets used in the training process of recognition algorithm. 
 
 ## faster_rcnn-notebooks 
 This folder contains notebooks used to run Faster RCNN model with Transfer Learning Toolkit from NVIDIA. This whole folder is based on examples/faster_rcnn folder mounted when using the NGC TLT image.
 
+## scripts
+A folder containing any and all scripts we developped during our thesis. 
+
+## SSD-notebook
+This folder contains the specs we used to make an SSD.
+
+## yolo_v4
+This folder contains notebooks used to run yolov4 model with Transfer Learning Toolkit from NVIDIA. This whole folder is based on examples/YOLOv4 folder mounted when using the NGC TLT image.
 
