@@ -4,9 +4,9 @@
 
 [anchors.py](anchors.py) plots a representation of anchors as used by faster-rcnn
 
-[capture-jetson.py](capture-jetson.py) a script usasble by a Jetson Nano to capture pictures from a cammera feed whenever it detects movement
+[capture-jetson.py](capture-jetson.py) a script usable by a Jetson Nano to capture pictures from a cammera feed whenever it detects movement
 
-[capture-test.py](capture-test.py) a script usasble by any compuer with a webcam to capture pictures from the feed whenever it detects movement
+[capture-test.py](capture-test.py) a script usable by any compuer with a webcam to capture pictures from the feed whenever it detects movement
 
 [change.py](change.py) replace a string present in file names by another string
 
