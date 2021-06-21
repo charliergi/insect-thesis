@@ -9,6 +9,4 @@
 [graphs.ipynb](graphs.ipynb) a notebook to visualise the results of our faster_rcnn model
 
 [heatmap.ipynb](heatmap.ipynb) a notebook to visualise the distribution of the annotations after inference as a heatmap
-
-[output.txt](output.txt)
     
